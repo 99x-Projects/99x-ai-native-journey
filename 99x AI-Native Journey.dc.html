@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #07090b; }
+  body { -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #35e0a1; text-decoration: none; }
+  a:hover { color: #ffffff; }
+  @keyframes pulseDot { 0%,100% { opacity: .3; transform: scale(.85); } 50% { opacity: 1; transform: scale(1); } }
+  @keyframes scanLine { from { transform: translateY(-100%); } to { transform: translateY(2400%); } }
+  ::selection { background: #35e0a1; color: #07090b; }
+</style>
+</helmet>
+<div style="background:#07090b;color:#e8ecf0;font-family:Manrope,Helvetica,Arial,sans-serif;font-weight:300;line-height:1.55;overflow-x:hidden">
+
+  <nav style="position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(18px,4.5vw,68px);background:rgba(7,9,11,0.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(232,236,240,0.09)">
+    <div style="display:flex;align-items:center;gap:12px;min-width:0">
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:-0.02em;color:#fff">{{ company }}</span>
+      <span style="width:1px;height:16px;background:rgba(232,236,240,0.2)"></span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8b96a0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">AI-native delivery</span>
+    </div>
+    <div style="display:flex;gap:clamp(12px,2vw,26px);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase">
+      <a href="#why" style="color:#9aa5ae">Why</a>
+      <a href="#journey" style="color:#9aa5ae">Journey</a>
+      <a href="#model" style="color:#9aa5ae">Model</a>
+      <a href="#outcomes" style="color:#9aa5ae">Outcomes</a>
+    </div>
+  </nav>
+
+  <header style="position:relative;overflow:hidden;padding:clamp(56px,10vw,140px) clamp(18px,4.5vw,68px) clamp(48px,7vw,104px);background-color:#07090b;background-image:radial-gradient(120% 90% at 78% 0%,rgba(53,224,161,0.17),rgba(7,9,11,0) 62%),linear-gradient(rgba(232,236,240,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(232,236,240,0.045) 1px,transparent 1px);background-size:100% 100%,64px 64px,64px 64px">
+    <div data-reveal style="position:relative;max-width:1200px;margin:0 auto">
+      <div style="display:flex;align-items:center;gap:11px;margin-bottom:clamp(22px,3vw,38px)">
+        <span style="width:7px;height:7px;border-radius:50%;background:#35e0a1;box-shadow:0 0 14px 2px rgba(53,224,161,0.7);animation:pulseDot 2.4s ease-in-out infinite"></span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8b96a0">2023 &rarr; 2026 &nbsp;&middot;&nbsp; an engineering transformation at 99x</span>
+      </div>
+      <h1 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(38px,7.2vw,102px);line-height:0.99;letter-spacing:-0.035em;color:#fff;max-width:17ch;text-wrap:balance">We rebuilt how software gets <span style="color:#35e0a1">delivered</span>.</h1>
+      <p style="margin:clamp(22px,3vw,34px) 0 0;max-width:58ch;font-size:clamp(16.5px,1.5vw,21px);line-height:1.62;color:#a8b2bb;text-wrap:pretty">Not a tool rollout &mdash; a rewrite of the delivery process itself. How we scope, build, review and ship, with agents inside the loop and named engineers accountable for every increment. This is the honest version of that journey.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:clamp(40px,6vw,76px)">
+        <sc-for list="{{ heroStats }}" as="s" hint-placeholder-count="4">
+          <div style="background:#0a0d10;border:1px solid rgba(232,236,240,0.11);padding:24px 20px 22px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(32px,4vw,50px);line-height:1;letter-spacing:-0.03em;color:#35e0a1">{{ s.value }}</div>
+            <div style="margin-top:9px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#7d8891;line-height:1.7">{{ s.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </header>
+
+  <section id="why" style="padding:clamp(60px,9vw,128px) clamp(18px,4.5vw,68px);border-top:1px solid rgba(232,236,240,0.09)">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:clamp(30px,5vw,80px)">
+      <div data-reveal>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">01 / Why we changed</div>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4vw,52px);line-height:1.06;letter-spacing:-0.03em;color:#fff;max-width:21ch;text-wrap:balance">The bottleneck moved. Our process didn't.</h2>
+      </div>
+      <div data-reveal style="display:flex;flex-direction:column;gap:clamp(22px,3vw,34px)">
+        <p style="margin:0;font-size:clamp(16px,1.3vw,19px);line-height:1.68;color:#a8b2bb;text-wrap:pretty">Writing code stopped being the expensive part. Deciding what to build, holding context across a growing product surface, and trusting what came back &mdash; that is where our teams actually spent their weeks. Bolting AI onto an unchanged process only made the same queues fill faster.</p>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ pressures }}" as="p" hint-placeholder-count="3">
+            <div style="padding:20px 0;border-top:1px solid rgba(232,236,240,0.1);display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#35e0a1;padding-top:4px">{{ p.tag }}</span>
+              <div>
+                <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:17px;color:#fff">{{ p.title }}</div>
+                <div style="margin-top:6px;font-size:15.5px;line-height:1.62;color:#96a1ab;text-wrap:pretty">{{ p.body }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey" style="position:relative;padding:clamp(60px,9vw,128px) clamp(18px,4.5vw,68px);background-color:#090c0f;background-image:radial-gradient(90% 60% at 10% 0%,rgba(53,224,161,0.1),rgba(9,12,15,0) 60%);border-top:1px solid rgba(232,236,240,0.09)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div data-reveal style="max-width:62ch">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">02 / The journey</div>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;text-wrap:balance">Not a trend we followed. A path we inspected.</h2>
+        <p style="margin:20px 0 0;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#a8b2bb;text-wrap:pretty">Each step came from close inspection, observation and judgement &mdash; and had to earn its place on a live client engagement before it became the default anywhere else.</p>
+      </div>
+
+      <div style="margin-top:clamp(42px,6vw,82px);display:flex;flex-direction:column">
+        <sc-for list="{{ phases }}" as="ph" hint-placeholder-count="5">
+          <div data-reveal style="display:grid;grid-template-columns:minmax(0,148px) minmax(0,1fr);gap:clamp(18px,4vw,56px);padding:clamp(26px,3.4vw,40px) 0;border-top:1px solid rgba(232,236,240,0.12)">
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#35e0a1">{{ ph.when }}</div>
+              <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883">Phase {{ ph.no }}</div>
+              <div style="margin-top:16px;height:3px;background:rgba(232,236,240,0.12)">
+                <div style="height:3px;background:#35e0a1;width:{{ ph.progress }};box-shadow:0 0 10px rgba(53,224,161,0.6)"></div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:clamp(16px,3vw,48px);align-items:start">
+              <div>
+                <h3 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(22px,2.5vw,32px);line-height:1.14;letter-spacing:-0.025em;color:#fff">{{ ph.title }}</h3>
+                <p style="margin:12px 0 0;font-size:15.5px;line-height:1.64;color:#96a1ab;text-wrap:pretty">{{ ph.body }}</p>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:11px">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883">What shipped</div>
+                <sc-for list="{{ ph.items }}" as="it" hint-placeholder-count="3">
+                  <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:11px;font-size:14.5px;line-height:1.55;color:#c2cad2">
+                    <span style="color:#35e0a1">&#43;</span>
+                    <span>{{ it }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="model" style="padding:clamp(60px,9vw,128px) clamp(18px,4.5vw,68px);border-top:1px solid rgba(232,236,240,0.09)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div data-reveal style="max-width:62ch">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">03 / The model today</div>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;text-wrap:balance">Intent in, reviewed increments out.</h2>
+      </div>
+
+      <div data-reveal style="margin-top:clamp(38px,5vw,72px);border:1px solid rgba(232,236,240,0.12);background:#0a0d10">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,208px),1fr))">
+          <sc-for list="{{ stages }}" as="st" hint-placeholder-count="5">
+            <div style="padding:clamp(20px,2.6vw,30px);border-right:1px solid rgba(232,236,240,0.1);border-bottom:1px solid rgba(232,236,240,0.1);display:flex;flex-direction:column;gap:12px;min-height:210px">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#35e0a1">{{ st.no }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(232,236,240,0.22);color:#a8b2bb;white-space:nowrap">{{ st.owner }}</span>
+              </div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(20px,2.1vw,26px);line-height:1.12;letter-spacing:-0.025em;color:#fff">{{ st.title }}</div>
+              <div style="font-size:14.5px;line-height:1.6;color:#96a1ab;text-wrap:pretty">{{ st.body }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="padding:22px clamp(20px,2.6vw,30px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px;background:rgba(53,224,161,0.08);border-top:1px solid rgba(53,224,161,0.3)">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#35e0a1">Non-negotiable at every stage</div>
+          <div style="font-size:15px;line-height:1.62;color:#d3dae0">A named engineer owns the increment. Agents draft; humans decide, review and sign.</div>
+          <div style="font-size:15px;line-height:1.62;color:#d3dae0">Tests, evals and traces run before review &mdash; never after a client finds the defect.</div>
+        </div>
+      </div>
+
+      <div data-reveal style="margin-top:clamp(32px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px">
+        <sc-for list="{{ stack }}" as="g" hint-placeholder-count="4">
+          <div style="background:#0a0d10;border:1px solid rgba(232,236,240,0.11);padding:24px 22px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883">{{ g.group }}</div>
+            <div style="margin-top:15px;display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ g.tools }}" as="t" hint-placeholder-count="3">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:5px 10px;border:1px solid rgba(232,236,240,0.18);color:#c2cad2">{{ t }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal style="padding:0 clamp(18px,4.5vw,68px) clamp(48px,7vw,100px)">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px">
+      <div style="aspect-ratio:16/10;border:1px solid rgba(232,236,240,0.14);background-image:repeating-linear-gradient(135deg,rgba(232,236,240,0.05) 0 10px,rgba(232,236,240,0) 10px 20px);display:flex;align-items:center;justify-content:center;padding:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#7d8891;text-align:center">drop photo &nbsp;/&nbsp; squad working session</span>
+      </div>
+      <div style="aspect-ratio:16/10;border:1px solid rgba(232,236,240,0.14);background-image:repeating-linear-gradient(135deg,rgba(232,236,240,0.05) 0 10px,rgba(232,236,240,0) 10px 20px);display:flex;align-items:center;justify-content:center;padding:16px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#7d8891;text-align:center">drop screenshot &nbsp;/&nbsp; spec-to-PR pipeline</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="outcomes" style="padding:clamp(60px,9vw,128px) clamp(18px,4.5vw,68px);background:#090c0f;border-top:1px solid rgba(232,236,240,0.09);border-bottom:1px solid rgba(232,236,240,0.09)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div data-reveal style="max-width:62ch">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">04 / Outcomes</div>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff">What actually moved.</h2>
+        <p style="margin:18px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.7;color:#7d8891">Medians across {{ squadCount }} squads, measured against our 2023 baseline.</p>
+      </div>
+
+      <div data-reveal style="margin-top:clamp(38px,5vw,70px);display:flex;flex-direction:column">
+        <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:clamp(14px,2.5vw,40px);align-items:center;padding:clamp(18px,2.4vw,26px) 0;border-top:1px solid rgba(232,236,240,0.11)">
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:17px;color:#fff">{{ m.label }}</div>
+              <div style="margin-top:5px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#7d8891">{{ m.from }} &rarr; {{ m.to }}</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="width:24px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#6d7883">23</span>
+                <span style="height:9px;background:rgba(232,236,240,0.2);width:{{ m.beforePct }}"></span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <span style="width:24px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.08em;color:#a8b2bb">26</span>
+                <span style="height:9px;background:#35e0a1;box-shadow:0 0 12px rgba(53,224,161,0.55);width:{{ m.afterPct }}"></span>
+              </div>
+            </div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.2vw,42px);line-height:1;letter-spacing:-0.03em;color:#35e0a1;text-align:right">{{ m.delta }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(60px,9vw,128px) clamp(18px,4.5vw,68px)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div data-reveal style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">05 / What we got wrong</div>
+      <h2 data-reveal style="margin:0 0 clamp(34px,5vw,62px);font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;max-width:23ch;text-wrap:balance">The lessons that cost us something.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,265px),1fr));gap:12px">
+        <sc-for list="{{ lessons }}" as="l" hint-placeholder-count="4">
+          <div data-reveal style="background:#0a0d10;border:1px solid rgba(232,236,240,0.11);padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:12px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:30px;line-height:1;color:rgba(232,236,240,0.22)">{{ l.no }}</span>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:17.5px;line-height:1.3;color:#fff;text-wrap:pretty">{{ l.title }}</div>
+            <div style="font-size:15px;line-height:1.62;color:#96a1ab;text-wrap:pretty">{{ l.body }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(54px,8vw,112px) clamp(18px,4.5vw,68px);background-color:#0a0d10;background-image:radial-gradient(90% 120% at 85% 20%,rgba(53,224,161,0.16),rgba(10,13,16,0) 60%);border-top:1px solid rgba(232,236,240,0.09)">
+    <div data-reveal style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:clamp(26px,4vw,64px);align-items:end">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">06 / What's next</div>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,46px);line-height:1.08;letter-spacing:-0.03em;color:#fff;max-width:25ch;text-wrap:balance">{{ nextHeadline }}</h2>
+        <p style="margin:18px 0 0;max-width:54ch;font-size:16.5px;line-height:1.66;color:#a8b2bb;text-wrap:pretty">{{ nextBody }}</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+        <a href="https://99x.io/about-us/contact-us" style="background:#35e0a1;color:#07090b;padding:16px 28px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500" style-hover="background:#ffffff">Talk to our delivery leads</a>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#7d8891;line-height:1.8">Or read the field notes our squads publish each quarter.</span>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:30px clamp(18px,4.5vw,68px);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#6d7883;border-top:1px solid rgba(232,236,240,0.09)">
+    <span>{{ company }} &nbsp;&middot;&nbsp; AI-native engineering delivery &nbsp;&middot;&nbsp; Oslo &middot; Colombo</span>
+    <span>Phase dates and deltas are placeholders &mdash; swap in audited figures before publishing.</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;company&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;99x&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;squadCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:14,&quot;min&quot;:1,&quot;max&quot;:60,&quot;tsType&quot;:&quot;number&quot;},&quot;scrollReveal&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;nextHeadline&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Same process, applied to the parts we have not touched yet.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;What's next&quot;},&quot;nextBody&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;What's next&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    if (this.props.scrollReveal === false || !('IntersectionObserver' in window)) return;
+    const show = (el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      io.unobserve(el);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting || e.boundingClientRect.bottom < 0) show(e.target);
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    const sweep = () => {
+      this._els.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.94) show(el);
+      });
+    };
+    this._sweep = sweep;
+    window.addEventListener('scroll', sweep, { passive: true });
+    window.addEventListener('hashchange', sweep);
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    this._els.forEach((el, i) => {
+      el.style.transition = 'opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1)';
+      el.style.transitionDelay = (Math.min(i, 3) * 55) + 'ms';
+      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(22px)';
+      }
+      io.observe(el);
+    });
+    this._io = io;
+  }
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this._sweep) {
+      window.removeEventListener('scroll', this._sweep);
+      window.removeEventListener('hashchange', this._sweep);
+    }
+  }
+
+  renderVals() {
+    return {
+      company: this.props.company ?? '99x',
+      squadCount: this.props.squadCount ?? 14,
+      heroStats: [
+        { value: '600+', label: 'engineers across\n5 continents' },
+        { value: '3 yrs', label: 'first pilot to\ndefault process' },
+        { value: '41%', label: 'median cycle-time\nreduction' },
+        { value: '100%', label: 'increments with a\nnamed human owner' }
+      ],
+      pressures: [
+        { tag: '[a]', title: 'Spec debt outgrew code debt', body: 'A squad could generate a feature in a day, then spend a week arguing about whether it was the right one.' },
+        { tag: '[b]', title: 'Review became the queue', body: 'More output per engineer meant reviewers were the new constraint — and review quality quietly slipped.' },
+        { tag: '[c]', title: 'Clients asked how, not whether', body: 'Procurement and security wanted our AI usage documented before they would sign a statement of work.' }
+      ],
+      phases: [
+        { no: '01', when: '2023', progress: '100%', title: 'AI as a productivity tool', body: 'The journey started the moment our teams got access to AI tools. No grand strategy — engineers and designers used them for assistance on the work already in front of them, and we watched closely what actually helped.', items: ['Wireframes drafted in minutes, not sessions', 'Code and unit tests generated alongside the engineer', 'Emails, summaries and documentation drafted faster', 'Close observation of where the help was real'] },
+        { no: '02', when: 'Q4 2023', progress: '100%', title: 'Baselines before bets', body: 'We refused to claim improvement without a measured starting point, so we instrumented delivery first.', items: ['Cycle time, review latency, escaped defects', 'Per-squad baseline dashboard', 'Client consent and data-handling matrix'] },
+        { no: '03', when: '2024', progress: '100%', title: 'Two squads, one new process', body: 'A real client engagement ran spec-first with agentic implementation. Everything was allowed to be slower at first.', items: ['Machine-readable specs as source of truth', 'Agent-drafted PRs with human sign-off', 'Test and eval gates wired into CI'] },
+        { no: '04', when: '2025', progress: '100%', title: 'From pilot to platform', body: 'The parts that worked became shared infrastructure instead of squad folklore.', items: ['Internal context and prompt library', 'MCP connectors to client systems', 'Enablement track for every engineer'] },
+        { no: '05', when: '2026', progress: '62%', title: 'AI-native as the default', body: 'New engagements start on the model. The old process is now the exception that needs a justification.', items: ['Model written into the delivery playbook', 'Client-facing transparency reporting', 'Quarterly review of the guardrails themselves'] }
+      ],
+      stages: [
+        { no: '01', owner: 'Human', title: 'Intent', body: 'Outcome, constraints and non-goals captured with the client before any code is considered.' },
+        { no: '02', owner: 'Human + AI', title: 'Spec', body: 'Intent becomes a structured, testable spec. This artefact is what the team argues about.' },
+        { no: '03', owner: 'AI-led', title: 'Build', body: 'Agents implement against the spec in a repo where context, conventions and tests already live.' },
+        { no: '04', owner: 'Human', title: 'Review', body: 'A named engineer reviews intent-fit, not just diff correctness, and owns what ships.' },
+        { no: '05', owner: 'Shared', title: 'Learn', body: 'Traces, evals and escaped defects feed back into the spec library and the guardrails.' }
+      ],
+      stack: [
+        { group: 'Build', tools: ['Coding agents', 'IDE assistants', 'Agentic PR review'] },
+        { group: 'Context', tools: ['MCP connectors', 'Spec library', 'Repo conventions'] },
+        { group: 'Quality', tools: ['Eval suites', 'CI gates', 'Trace capture'] },
+        { group: 'Governance', tools: ['Client consent matrix', 'Data boundaries', 'Usage reporting'] }
+      ],
+      metrics: [
+        { label: 'Cycle time, idea to production', from: '18 days', to: '10.6 days', beforePct: '92%', afterPct: '54%', delta: '-41%' },
+        { label: 'Pull-request review latency', from: '26 hrs', to: '7 hrs', beforePct: '88%', afterPct: '24%', delta: '-73%' },
+        { label: 'Escaped defects per release', from: '4.1', to: '2.3', beforePct: '78%', afterPct: '44%', delta: '-44%' },
+        { label: 'Engineer time on discovery & spec', from: '12%', to: '31%', beforePct: '26%', afterPct: '68%', delta: '+2.6x' }
+      ],
+      lessons: [
+        { no: '01', title: 'We measured output before we measured outcomes', body: 'Lines and PR counts went up while client value did not. We replaced them with cycle time and escaped defects.' },
+        { no: '02', title: 'Tooling without process is just faster chaos', body: 'The first year of licences bought us velocity in the wrong direction on two engagements.' },
+        { no: '03', title: 'Reviewers needed retraining, not just time', body: 'Reviewing agent-written code is a different skill. We had to teach intent-fit review explicitly.' },
+        { no: '04', title: 'Transparency had to come before the pitch', body: 'Clients trusted the model only once we could show them exactly what data went where, in writing.' }
+      ],
+      nextHeadline: this.props.nextHeadline ?? 'Same process, applied to the parts we have not touched yet.',
+      nextBody: this.props.nextBody ?? 'Next on the list: agentic support for legacy modernisation, eval coverage as a contractual quality signal, and publishing our guardrails so clients can audit them rather than take our word for it.'
+    };
+  }
+}
+</script>
+</body>
+</html>
