@@ -251,11 +251,49 @@
     <div style="max-width:1200px;margin:0 auto">
       <div data-reveal style="max-width:62ch">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">03 / The model today</div>
-        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;text-wrap:balance">The Intent Delivery Framework, as we run it.</h2>
-        <p style="margin:20px 0 0;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#a8b2bb;text-wrap:pretty">A continuous loop, not a pipeline: every feature starts as a written intent, every AI interaction is gated and logged, and every failure becomes a rule.</p>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;text-wrap:balance">Copilots and autopilots, one process, one movement.</h2>
+        <p style="margin:20px 0 0;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#a8b2bb;text-wrap:pretty">The model moves on three axes at once &mdash; tools, process and people. Engineers work with copilots in the IDE; agents run as autopilots on lifecycle triggers; the Intent Delivery Framework governs how both are used; and the North Star Program carries it across the company.</p>
       </div>
 
-      <div data-reveal style="margin-top:clamp(28px,3.5vw,44px);display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+      <div data-reveal style="margin-top:clamp(32px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
+        <div style="background:#0a0d10;border:1px solid rgba(232,236,240,0.14);padding:clamp(22px,2.8vw,32px);display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883">Tools &middot; engineer-invoked</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(232,236,240,0.22);color:#a8b2bb">Bottom-up</span>
+          </div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(22px,2.3vw,28px);line-height:1.12;letter-spacing:-0.025em;color:#fff">Copilots</div>
+          <div style="font-size:15px;line-height:1.62;color:#96a1ab;text-wrap:pretty">Expert skills an engineer pulls into the IDE when the work calls for them &mdash; architecture review, error-handling audits, security scanning, test generation, UX research, estimation. Centrally managed, served to Claude Code, Cursor and Copilot alike.</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:2px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:5px 10px;border:1px solid rgba(232,236,240,0.18);color:#c2cad2">Architecture</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:5px 10px;border:1px solid rgba(232,236,240,0.18);color:#c2cad2">Coding</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:5px 10px;border:1px solid rgba(232,236,240,0.18);color:#c2cad2">QA</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:5px 10px;border:1px solid rgba(232,236,240,0.18);color:#c2cad2">DevOps</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:5px 10px;border:1px solid rgba(232,236,240,0.18);color:#c2cad2">UX</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:5px 10px;border:1px solid rgba(232,236,240,0.18);color:#c2cad2">Compliance</span>
+          </div>
+          <a href="https://github.com/xianix-team/ide-expert-agents" target="_blank" rel="noopener" style="margin-top:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase">Skill library &rarr;</a>
+        </div>
+        <div style="background:#0a0d10;border:1px solid rgba(53,224,161,0.3);padding:clamp(22px,2.8vw,32px);display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#35e0a1">Tools &middot; lifecycle-triggered</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(53,224,161,0.45);color:#35e0a1">Top-down</span>
+          </div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(22px,2.3vw,28px);line-height:1.12;letter-spacing:-0.025em;color:#fff">Autopilots</div>
+          <div style="font-size:15px;line-height:1.62;color:#96a1ab;text-wrap:pretty">Agents running inside Xianix that fire on delivery events, not on a prompt. Each one drafts and prepares; each one stops at a human checkpoint where a named engineer decides and signs.</div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:2px">
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:11px;font-size:14.5px;line-height:1.5;color:#c2cad2"><span style="color:#35e0a1">&#43;</span><span><strong style="font-weight:500;color:#fff">Requirement Analyst</strong> &mdash; grooms a new backlog item into testable criteria</span></div>
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:11px;font-size:14.5px;line-height:1.5;color:#c2cad2"><span style="color:#35e0a1">&#43;</span><span><strong style="font-weight:500;color:#fff">Technical Designer</strong> &mdash; turns it into an implementation spec</span></div>
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:11px;font-size:14.5px;line-height:1.5;color:#c2cad2"><span style="color:#35e0a1">&#43;</span><span><strong style="font-weight:500;color:#fff">PR Reviewer</strong> &mdash; first-pass review against intent, architecture and risk</span></div>
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:11px;font-size:14.5px;line-height:1.5;color:#c2cad2"><span style="color:#35e0a1">&#43;</span><span><strong style="font-weight:500;color:#fff">Test Planner</strong> &mdash; prioritises the highest-risk scenarios before merge</span></div>
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:11px;font-size:14.5px;line-height:1.5;color:#c2cad2"><span style="color:#35e0a1">&#43;</span><span><strong style="font-weight:500;color:#fff">Release Manager</strong> &mdash; readiness, release notes, rollout risk</span></div>
+          </div>
+          <a href="https://xianix.ai/#agents" target="_blank" rel="noopener" style="margin-top:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase">The agent team &rarr;</a>
+        </div>
+      </div>
+
+      <div data-reveal style="margin-top:clamp(40px,5vw,72px);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883">Process &middot; the Intent Delivery Framework governs both</div>
+
+      <div data-reveal style="margin-top:clamp(18px,2.5vw,26px);display:flex;flex-wrap:wrap;align-items:center;gap:12px">
         <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14px;letter-spacing:0.01em;color:#d3dae0;padding:10px 20px;border:1px solid rgba(232,236,240,0.3);border-radius:999px">Inception</span>
         <span style="color:#35e0a1;font-size:15px">&rarr;</span>
         <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14px;letter-spacing:0.01em;color:#d3dae0;padding:10px 20px;border:1px solid rgba(232,236,240,0.3);border-radius:999px">Construction</span>
@@ -286,17 +324,26 @@
         </div>
       </div>
 
-      <div data-reveal style="margin-top:clamp(32px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px">
-        <sc-for list="{{ stack }}" as="g" hint-placeholder-count="4">
-          <div style="background:#0a0d10;border:1px solid rgba(232,236,240,0.11);padding:24px 22px">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883">{{ g.group }}</div>
-            <div style="margin-top:15px;display:flex;flex-wrap:wrap;gap:8px">
-              <sc-for list="{{ g.tools }}" as="t" hint-placeholder-count="3">
-                <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:5px 10px;border:1px solid rgba(232,236,240,0.18);color:#c2cad2">{{ t }}</span>
-              </sc-for>
-            </div>
+      <div data-reveal style="margin-top:clamp(40px,5vw,72px);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883">People &middot; the movement behind the machine</div>
+
+      <div data-reveal style="margin-top:clamp(18px,2.5vw,26px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
+        <div style="background:#0a0d10;border:1px solid rgba(232,236,240,0.14);padding:clamp(22px,2.8vw,32px);display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883">Company-wide program</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(22px,2.3vw,28px);line-height:1.12;letter-spacing:-0.025em;color:#fff">99x North Star</div>
+          <div style="font-size:15px;line-height:1.62;color:#96a1ab;text-wrap:pretty">One shared commitment: incorporate AI into the software development lifecycle in a way that elevates project performance &mdash; for our own teams and for every client we guide through the same transformation.</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:12px;margin-top:2px">
+            <div style="border-top:2px solid #35e0a1;padding-top:10px;font-size:13.5px;line-height:1.45;color:#96a1ab"><strong style="font-weight:500;color:#fff;display:block;font-family:'Space Grotesk',sans-serif;font-size:15px">Higher pace</strong>Ship faster, every bolt</div>
+            <div style="border-top:2px solid #35e0a1;padding-top:10px;font-size:13.5px;line-height:1.45;color:#96a1ab"><strong style="font-weight:500;color:#fff;display:block;font-family:'Space Grotesk',sans-serif;font-size:15px">Better quality</strong>An outcome of AI-elevated practices</div>
+            <div style="border-top:2px solid #35e0a1;padding-top:10px;font-size:13.5px;line-height:1.45;color:#96a1ab"><strong style="font-weight:500;color:#fff;display:block;font-family:'Space Grotesk',sans-serif;font-size:15px">Extended value</strong>New upside AI-DLC unlocks</div>
+            <div style="border-top:2px solid #35e0a1;padding-top:10px;font-size:13.5px;line-height:1.45;color:#96a1ab"><strong style="font-weight:500;color:#fff;display:block;font-family:'Space Grotesk',sans-serif;font-size:15px">A team that thrives</strong>An enjoyable journey for everyone</div>
           </div>
-        </sc-for>
+        </div>
+        <div style="background:#0a0d10;border:1px solid rgba(232,236,240,0.14);padding:clamp(22px,2.8vw,32px);display:flex;flex-direction:column;gap:14px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883">Enablement &middot; 2026 to date</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(46px,6vw,76px);line-height:1;letter-spacing:-0.04em;color:#35e0a1">5,000+</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(20px,2.1vw,25px);line-height:1.15;letter-spacing:-0.02em;color:#fff">training hours delivered</div>
+          <div style="font-size:15px;line-height:1.62;color:#96a1ab;text-wrap:pretty">Tools and process only move as fast as the people using them. The skill library gives every engineer a way in; the training hours are where the judgement gets built &mdash; reviewing agent output, holding ownership, knowing when to redirect.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -439,7 +486,7 @@ class Component extends DCLogic {
         { value: '600+', label: 'engineers across\n5 continents' },
         { value: '4 yrs', label: '2023 to today,\nfour phases' },
         { value: '41%', label: 'median cycle-time\nreduction' },
-        { value: '100%', label: 'increments with a\nnamed human owner' }
+        { value: '5,000+', label: 'training hours\ndelivered in 2026' }
       ],
       pressures: [
         { tag: '[a]', title: 'Spec debt outgrew code debt', body: 'A squad could generate a feature in a day, then spend a week arguing about whether it was the right one.' },
@@ -457,12 +504,6 @@ class Component extends DCLogic {
         { no: '02', owner: 'AI-led', title: 'Construction', body: 'Units are delivered as bolts. AI plans and implements against the intent; every interaction passes a quality gate and a named engineer signs the change.' },
         { no: '03', owner: 'Shared', title: 'Operate', body: 'UAT, release and run. The artefacts produced along the way \u2014 specs, reviews, test plans, release notes \u2014 are the audit trail, not extra overhead.' },
         { no: '04', owner: 'Shared', title: 'Improve', body: 'Retros and root-cause analysis turn every failure into a rule that prevents recurrence, and proven rules are promoted back into the base framework.' }
-      ],
-      stack: [
-        { group: 'Control plane', tools: ['Xianix.ai', 'Agent pods', 'Claude Code plugins'] },
-        { group: 'Process', tools: ['Intent Delivery Framework', 'Intents \u00b7 Units \u00b7 Bolts', 'Mob elaborations'] },
-        { group: 'Enablement', tools: ['Expert skill library', 'MCP prompt server', 'Claude Code \u00b7 Cursor \u00b7 Copilot'] },
-        { group: 'Guardrails', tools: ['Human checkpoints', 'Quality gates', 'ISO 9001 \u00b7 27001 \u00b7 27701'] }
       ],
       metrics: [
         { label: 'Cycle time, idea to production', from: '18 days', to: '10.6 days', beforePct: '92%', afterPct: '54%', delta: '-41%' },
