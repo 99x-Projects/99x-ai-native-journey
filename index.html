@@ -28,13 +28,13 @@
     <div style="display:flex;align-items:center;gap:12px;min-width:0">
       <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:-0.02em;color:#fff">{{ company }}</span>
       <span style="width:1px;height:16px;background:rgba(232,236,240,0.2)"></span>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8b96a0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">AI-native delivery</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#8b96a0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">field report &middot; ai-native delivery</span>
     </div>
     <div style="display:flex;gap:clamp(12px,2vw,26px);font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase">
-      <a href="#why" style="color:#9aa5ae">Why</a>
+      <a href="#why" style="color:#9aa5ae">Context</a>
       <a href="#journey" style="color:#9aa5ae">Journey</a>
       <a href="#model" style="color:#9aa5ae">Model</a>
-      <a href="#outcomes" style="color:#9aa5ae">Outcomes</a>
+      <a href="#outcomes" style="color:#9aa5ae">Evidence</a>
     </div>
   </nav>
 
@@ -42,10 +42,10 @@
     <div data-reveal style="position:relative;max-width:1200px;margin:0 auto">
       <div style="display:flex;align-items:center;gap:11px;margin-bottom:clamp(22px,3vw,38px)">
         <span style="width:7px;height:7px;border-radius:50%;background:#35e0a1;box-shadow:0 0 14px 2px rgba(53,224,161,0.7);animation:pulseDot 2.4s ease-in-out infinite"></span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8b96a0">2023 &rarr; 2026 &nbsp;&middot;&nbsp; an engineering transformation at 99x</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8b96a0">2023 &rarr; 2026 &nbsp;&middot;&nbsp; a field report from 99x engineering</span>
       </div>
-      <h1 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(38px,7.2vw,102px);line-height:0.99;letter-spacing:-0.035em;color:#fff;max-width:17ch;text-wrap:balance">We rebuilt how software gets <span style="color:#35e0a1">delivered</span>.</h1>
-      <p style="margin:clamp(22px,3vw,34px) 0 0;max-width:58ch;font-size:clamp(16.5px,1.5vw,21px);line-height:1.62;color:#a8b2bb;text-wrap:pretty">Not a tool rollout &mdash; a rewrite of the delivery process itself. How we scope, build, review and ship, with agents inside the loop and named engineers accountable for every increment. This is the honest version of that journey.</p>
+      <h1 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(38px,7.2vw,102px);line-height:0.99;letter-spacing:-0.035em;color:#fff;max-width:17ch;text-wrap:balance">Four years of learning how AI changes <span style="color:#35e0a1">delivery</span>.</h1>
+      <p style="margin:clamp(22px,3vw,34px) 0 0;max-width:58ch;font-size:clamp(16.5px,1.5vw,21px);line-height:1.62;color:#a8b2bb;text-wrap:pretty">This is a written record of what we tried, what broke, and what we changed as a result &mdash; phase by phase, with the dip included. It is here to be read and argued with, not to sell anything. If you are attempting the same shift, the mistakes are the most useful part.</p>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:clamp(40px,6vw,76px)">
         <sc-for list="{{ heroStats }}" as="s" hint-placeholder-count="4">
@@ -61,11 +61,11 @@
   <section id="why" style="padding:clamp(60px,9vw,128px) clamp(18px,4.5vw,68px);border-top:1px solid rgba(232,236,240,0.09)">
     <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:clamp(30px,5vw,80px)">
       <div data-reveal>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">01 / Why we changed</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">01 / Context</div>
         <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4vw,52px);line-height:1.06;letter-spacing:-0.03em;color:#fff;max-width:21ch;text-wrap:balance">The bottleneck moved. Our process didn't.</h2>
       </div>
       <div data-reveal style="display:flex;flex-direction:column;gap:clamp(22px,3vw,34px)">
-        <p style="margin:0;font-size:clamp(16px,1.3vw,19px);line-height:1.68;color:#a8b2bb;text-wrap:pretty">Writing code stopped being the expensive part. Deciding what to build, holding context across a growing product surface, and trusting what came back &mdash; that is where our teams actually spent their weeks. Bolting AI onto an unchanged process only made the same queues fill faster.</p>
+        <p style="margin:0;font-size:clamp(16px,1.3vw,19px);line-height:1.68;color:#a8b2bb;text-wrap:pretty">The first thing worth understanding is where the cost actually sits. Writing code stopped being the expensive part; deciding what to build, holding context across a growing product surface, and trusting what came back is where our teams spent their weeks. The general lesson: adding AI to an unchanged process does not remove a queue, it fills the same one faster. Three pressures made that visible for us.</p>
         <div style="display:flex;flex-direction:column">
           <sc-for list="{{ pressures }}" as="p" hint-placeholder-count="3">
             <div style="padding:20px 0;border-top:1px solid rgba(232,236,240,0.1);display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start">
@@ -84,9 +84,9 @@
   <section id="journey" style="position:relative;padding:clamp(60px,9vw,128px) clamp(18px,4.5vw,68px);background-color:#090c0f;background-image:radial-gradient(90% 60% at 10% 0%,rgba(53,224,161,0.1),rgba(9,12,15,0) 60%);border-top:1px solid rgba(232,236,240,0.09)">
     <div style="max-width:1200px;margin:0 auto">
       <div data-reveal style="max-width:62ch">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">02 / The journey</div>
-        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;text-wrap:balance">Not a trend we followed. A path we inspected.</h2>
-        <p style="margin:20px 0 0;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#a8b2bb;text-wrap:pretty">Each step came from close inspection, observation and judgement &mdash; and had to earn its place on a live client engagement before it became the default anywhere else.</p>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">02 / How it unfolded</div>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;text-wrap:balance">Four phases, each one a correction of the last.</h2>
+        <p style="margin:20px 0 0;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#a8b2bb;text-wrap:pretty">Read these in order: each phase solved the problem the previous one created. Nothing here was adopted because it was new &mdash; it had to hold up on a live client engagement first. The &ldquo;what shipped&rdquo; column is what changed in practice, including the side effects we did not anticipate.</p>
       </div>
 
       <div style="margin-top:clamp(42px,6vw,82px);display:flex;flex-direction:column">
@@ -119,7 +119,7 @@
       </div>
 
       <div data-reveal style="margin-top:clamp(40px,5vw,72px)">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883;margin-bottom:18px">Where we are today &mdash; three moving parts, two directions of adoption</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6d7883;margin-bottom:18px">Where phase 04 landed &mdash; three moving parts, two directions of adoption</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:12px">
           <div style="background:#0a0d10;border:1px solid rgba(232,236,240,0.14);padding:clamp(22px,2.8vw,30px);display:flex;flex-direction:column;gap:12px">
             <span style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;padding:4px 9px;border:1px solid rgba(53,224,161,0.45);color:#35e0a1">Top-down</span>
@@ -147,9 +147,9 @@
   <section id="roi" style="padding:clamp(60px,9vw,120px) clamp(18px,4.5vw,68px);border-top:1px solid rgba(232,236,240,0.09)">
     <div style="max-width:1200px;margin:0 auto">
       <div data-reveal style="max-width:62ch">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">Return on the change</div>
-        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.8vw,48px);line-height:1.05;letter-spacing:-0.03em;color:#fff;text-wrap:balance">The dip was the price of figuring it out.</h2>
-        <p style="margin:18px 0 0;font-size:clamp(15.5px,1.3vw,18px);line-height:1.66;color:#a8b2bb;text-wrap:pretty">Value fell before it rose. Learning, re-tooling and rebuilding the process cost us real months &mdash; and that investment is what put us on a compounding curve instead of a one-off bump.</p>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">Reading the curve</div>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.8vw,48px);line-height:1.05;letter-spacing:-0.03em;color:#fff;text-wrap:balance">Expect a dip before the gain.</h2>
+        <p style="margin:18px 0 0;font-size:clamp(15.5px,1.3vw,18px);line-height:1.66;color:#a8b2bb;text-wrap:pretty">The shape of this curve is the single most transferable thing in this report. Value fell below our own 2023 baseline before it rose: learning, re-tooling and rebuilding the process cost real months. Teams that abandon the effort during the dip get a one-off bump; the ones that push through get a compounding curve. Knowing the dip is coming is what makes it survivable.</p>
       </div>
 
       <div data-reveal style="margin-top:clamp(32px,4.5vw,56px);background:#0a0d10;border:1px solid rgba(232,236,240,0.14);padding:clamp(18px,3vw,36px)">
@@ -250,9 +250,9 @@
   <section id="model" style="padding:clamp(60px,9vw,128px) clamp(18px,4.5vw,68px);border-top:1px solid rgba(232,236,240,0.09)">
     <div style="max-width:1200px;margin:0 auto">
       <div data-reveal style="max-width:62ch">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">03 / The model today</div>
-        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;text-wrap:balance">Copilots and autopilots, one process, one movement.</h2>
-        <p style="margin:20px 0 0;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#a8b2bb;text-wrap:pretty">The model moves on three axes at once &mdash; tools, process and people. Engineers work with copilots in the IDE; agents run as autopilots on lifecycle triggers; the Intent Delivery Framework governs how both are used; and the North Star Program carries it across the company.</p>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">03 / The model, explained</div>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;text-wrap:balance">Copilots, autopilots, and the process that governs both.</h2>
+        <p style="margin:20px 0 0;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#a8b2bb;text-wrap:pretty">Three axes have to move together &mdash; tools, process and people &mdash; and the distinction between the two kinds of tooling matters most. Copilots are pulled by an engineer, in the IDE, on demand. Autopilots are triggered by the delivery lifecycle itself. Process decides how either is allowed to be used; people decide whether any of it survives contact with real work.</p>
       </div>
 
       <div data-reveal style="margin-top:clamp(32px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
@@ -362,9 +362,9 @@
   <section id="outcomes" style="padding:clamp(60px,9vw,128px) clamp(18px,4.5vw,68px);background:#090c0f;border-top:1px solid rgba(232,236,240,0.09);border-bottom:1px solid rgba(232,236,240,0.09)">
     <div style="max-width:1200px;margin:0 auto">
       <div data-reveal style="max-width:62ch">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">04 / Outcomes</div>
-        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff">What actually moved.</h2>
-        <p style="margin:18px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.7;color:#7d8891">Medians across {{ squadCount }} squads, measured against our 2023 baseline.</p>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">04 / Evidence</div>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff">What the numbers did.</h2>
+        <p style="margin:18px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.7;color:#7d8891">Medians across {{ squadCount }} squads, measured against our 2023 baseline. Read them as direction and magnitude, not as benchmarks &mdash; the last row matters more than the first three: engineer time shifted toward discovery and specification, which is where the leverage moved.</p>
       </div>
 
       <div data-reveal style="margin-top:clamp(38px,5vw,70px);display:flex;flex-direction:column">
@@ -393,8 +393,8 @@
 
   <section style="padding:clamp(60px,9vw,128px) clamp(18px,4.5vw,68px)">
     <div style="max-width:1200px;margin:0 auto">
-      <div data-reveal style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">05 / What we got wrong</div>
-      <h2 data-reveal style="margin:0 0 clamp(34px,5vw,62px);font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;max-width:23ch;text-wrap:balance">The lessons that cost us something.</h2>
+      <div data-reveal style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">05 / Mistakes worth copying from</div>
+      <h2 data-reveal style="margin:0 0 clamp(34px,5vw,62px);font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#fff;max-width:23ch;text-wrap:balance">Four errors, and what each one taught.</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,265px),1fr));gap:12px">
         <sc-for list="{{ lessons }}" as="l" hint-placeholder-count="4">
           <div data-reveal style="background:#0a0d10;border:1px solid rgba(232,236,240,0.11);padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;gap:12px">
@@ -410,24 +410,24 @@
   <section style="padding:clamp(54px,8vw,112px) clamp(18px,4.5vw,68px);background-color:#0a0d10;background-image:radial-gradient(90% 120% at 85% 20%,rgba(53,224,161,0.16),rgba(10,13,16,0) 60%);border-top:1px solid rgba(232,236,240,0.09)">
     <div data-reveal style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:clamp(26px,4vw,64px);align-items:end">
       <div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">06 / What's next</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#35e0a1;margin-bottom:18px">06 / Open questions</div>
         <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3.6vw,46px);line-height:1.08;letter-spacing:-0.03em;color:#fff;max-width:25ch;text-wrap:balance">{{ nextHeadline }}</h2>
         <p style="margin:18px 0 0;max-width:54ch;font-size:16.5px;line-height:1.66;color:#a8b2bb;text-wrap:pretty">{{ nextBody }}</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
-        <a href="https://99x.io/about-us/contact-us" style="background:#35e0a1;color:#07090b;padding:16px 28px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500" style-hover="background:#ffffff">Talk to our delivery leads</a>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#7d8891;line-height:1.8">Or read the field notes our squads publish each quarter.</span>
+        <a href="https://github.com/xianix-team/ai-dlc-base" target="_blank" rel="noopener" style="background:#35e0a1;color:#07090b;padding:16px 28px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500" style-hover="background:#ffffff">Read the framework &rarr;</a>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#7d8891;line-height:1.8">The framework, agents and skill library are public &mdash; inspect them directly.</span>
       </div>
     </div>
   </section>
 
   <footer style="padding:30px clamp(18px,4.5vw,68px);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#6d7883;border-top:1px solid rgba(232,236,240,0.09)">
-    <span>{{ company }} &nbsp;&middot;&nbsp; AI-native engineering delivery &nbsp;&middot;&nbsp; Oslo &middot; Colombo</span>
-    <span>Phase dates and deltas are placeholders &mdash; swap in audited figures before publishing.</span>
+    <span>{{ company }} &nbsp;&middot;&nbsp; Field report &nbsp;&middot;&nbsp; last revised 2026</span>
+    <span>Written for engineering teams attempting the same shift. Figures are internal medians, not audited benchmarks.</span>
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;company&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;99x&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;squadCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:14,&quot;min&quot;:1,&quot;max&quot;:60,&quot;tsType&quot;:&quot;number&quot;},&quot;scrollReveal&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;nextHeadline&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Same process, applied to the parts we have not touched yet.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;What's next&quot;},&quot;nextBody&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;What's next&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;company&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;99x&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;squadCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:14,&quot;min&quot;:1,&quot;max&quot;:60,&quot;tsType&quot;:&quot;number&quot;},&quot;scrollReveal&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;nextHeadline&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;What we still do not know.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;What's next&quot;},&quot;nextBody&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;What's next&quot;}}">
 class Component extends DCLogic {
   componentDidMount() {
     if (this.props.scrollReveal === false || !('IntersectionObserver' in window)) return;
@@ -483,15 +483,15 @@ class Component extends DCLogic {
       company: this.props.company ?? '99x',
       squadCount: this.props.squadCount ?? 14,
       heroStats: [
-        { value: '600+', label: 'engineers across\n5 continents' },
-        { value: '4 yrs', label: '2023 to today,\nfour phases' },
+        { value: '4', label: 'phases, each\ncorrecting the last' },
+        { value: '4 yrs', label: 'from first tools\nto own framework' },
         { value: '41%', label: 'median cycle-time\nreduction' },
         { value: '5,000+', label: 'training hours\ndelivered in 2026' }
       ],
       pressures: [
-        { tag: '[a]', title: 'Spec debt outgrew code debt', body: 'A squad could generate a feature in a day, then spend a week arguing about whether it was the right one.' },
-        { tag: '[b]', title: 'Review became the queue', body: 'More output per engineer meant reviewers were the new constraint — and review quality quietly slipped.' },
-        { tag: '[c]', title: 'Clients asked how, not whether', body: 'Procurement and security wanted our AI usage documented before they would sign a statement of work.' }
+        { tag: '[a]', title: 'Spec debt outgrew code debt', body: 'A squad could generate a feature in a day, then spend a week arguing about whether it was the right one. Generation capacity does not create clarity about what to generate.' },
+        { tag: '[b]', title: 'Review became the queue', body: 'More output per engineer moved the constraint to reviewers, and review quality quietly slipped. Whenever you accelerate one step, look immediately at the step after it.' },
+        { tag: '[c]', title: 'Clients asked how, not whether', body: 'Procurement and security wanted AI usage documented before signing a statement of work. Auditability is a delivery requirement, not a compliance afterthought.' }
       ],
       phases: [
         { no: '01', when: '2023', progress: '100%', title: 'AI as a productivity tool', body: 'The journey started the moment our teams got access to AI tools. No grand strategy — engineers and designers used them for assistance on the work already in front of them, and we watched closely what actually helped.', items: ['Wireframes drafted in minutes, not sessions', 'Code and unit tests generated alongside the engineer', 'Emails, summaries and documentation drafted faster', 'Close observation of where the help was real'] },
@@ -517,8 +517,8 @@ class Component extends DCLogic {
         { no: '03', title: 'Reviewers needed retraining, not just time', body: 'Reviewing agent-written code is a different skill. We had to teach intent-fit review explicitly.' },
         { no: '04', title: 'Transparency had to come before the pitch', body: 'Clients trusted the model only once we could show them exactly what data went where, in writing.' }
       ],
-      nextHeadline: this.props.nextHeadline ?? 'Same process, applied to the parts we have not touched yet.',
-      nextBody: this.props.nextBody ?? 'Next on the list: agentic support for legacy modernisation, eval coverage as a contractual quality signal, and publishing our guardrails so clients can audit them rather than take our word for it.'
+      nextHeadline: this.props.nextHeadline ?? 'What we still do not know.',
+      nextBody: this.props.nextBody ?? 'Open questions we are working through: how far agentic support can go in legacy modernisation, whether eval coverage can serve as a contractual quality signal, and how to keep engineers owning knowledge that agents can produce faster than they can absorb it. If you have data on any of these, we would rather compare notes than guess.'
     };
   }
 }
