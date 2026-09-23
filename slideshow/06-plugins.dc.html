@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plugins · 99x AI-native journey</title>
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/animejs@4/dist/bundles/anime.umd.min.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #e6e1d7; overflow: hidden; height: 100%; }
+  body { -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #2a6f97; text-decoration: none; }
+  a:hover { color: #16212c; }
+  @keyframes pulseDot { 0%,100% { opacity: .3; transform: scale(.85); } 50% { opacity: 1; transform: scale(1); } }
+  @keyframes agDash { to { stroke-dashoffset: -28; } }
+</style>
+</helmet>
+<div data-stage style="position:fixed;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(0.5);transform-origin:center center;box-shadow:0 20px 60px rgba(22,33,44,0.12)">
+<section data-slide data-label="Plugins" data-screen-label="06 Plugins" data-speaker-notes="A plugin is a folder of markdown and JSON — capability is declared, not compiled. Click any box to jump to that step." style="width:1920px;height:1080px;box-sizing:border-box;background:#f4f1ea;padding:56px 80px;display:flex;flex-direction:column;gap:26px;font-family:Manrope,sans-serif;color:#26323d">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+      <div data-a="eyebrow" style="font-family:'IBM Plex Mono',monospace;font-size:18px;letter-spacing:0.18em;text-transform:uppercase;color:#2a6f97">03 / How the tools plug in</div>
+      <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:46px;line-height:1.05;letter-spacing:-0.03em;color:#16212c">Plugins: capability without a platform release.</h2>
+    </div>
+    <div data-a="ctrl" style="display:flex;align-items:center;gap:18px;flex-shrink:0"><div style="display:flex;gap:5px"><button data-ptick="0" aria-label="Step 1" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button><button data-ptick="1" aria-label="Step 2" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button><button data-ptick="2" aria-label="Step 3" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button><button data-ptick="3" aria-label="Step 4" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button><button data-ptick="4" aria-label="Step 5" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button><button data-ptick="5" aria-label="Step 6" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button><button data-ptick="6" aria-label="Step 7" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button><button data-ptick="7" aria-label="Step 8" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button><button data-ptick="8" aria-label="Step 9" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button><button data-ptick="9" aria-label="Step 10" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button><button data-ptick="10" aria-label="Step 11" style="width:30px;height:7px;padding:0;border:0;background:rgba(30,42,54,0.2);cursor:pointer"></button></div><button data-pluginplay style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.14em;text-transform:uppercase;color:#ffffff;background:#2a6f97;border:0;padding:13px 22px;cursor:pointer">Pause</button></div>
+  </div>
+  <div data-a="stage" style="flex:1;min-height:0;background:#ffffff;border:1px solid rgba(30,42,54,0.14);padding:24px 36px"><div data-pluginscroll style="width:100%;height:100%"><div data-pluginloop style="width:100%;height:100%"><svg viewBox="0 0 1080 556" role="img" aria-label="How Xianix plugins attach to the platform" width="100%" height="100%" style="display:block;overflow:visible;"><text x="40" y="14" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6a7883" letter-spacing="1.8">MARKETPLACE</text><text x="310" y="14" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6a7883" letter-spacing="1.8">WHAT A PLUGIN IS</text><text x="650" y="14" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6a7883" letter-spacing="1.8">TRIGGERED BY</text><text x="860" y="14" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6a7883" letter-spacing="1.8">DELIVERED AS</text><g data-pn="mkt" style="cursor:pointer"><rect x="40" y="26" width="230" height="74" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="155" y="56" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="13.5" fill="#3f4d59">Add the marketplace</text><text data-s x="155" y="84" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">PIN TO A BRANCH OR TAG</text></g><path data-pc="install" data-dash="1" d="M155,100 V120" fill="none" stroke="rgba(30,42,54,0.26)" stroke-width="1.2" stroke-dasharray="4 5" marker-end="url(#agArrow)"></path><g data-pn="install" style="cursor:pointer"><rect x="40" y="124" width="230" height="74" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="155" y="154" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="13.5" fill="#3f4d59">/plugin install</text><text data-s x="155" y="182" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">OR BROWSE · DISCOVER</text></g><text x="40" y="232" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6a7883">Repo · git URL · JSON · local path</text><path data-pc="manifest" data-dash="1" d="M270,161 C288,161 288,45 306,45" fill="none" stroke="rgba(30,42,54,0.26)" stroke-width="1.2" stroke-dasharray="4 5" marker-end="url(#agArrow)"></path><g data-pn="manifest" style="cursor:pointer"><rect x="310" y="26" width="300" height="38" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="323" y="49.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12.5" fill="#3f4d59">.claude-plugin/plugin.json</text><text data-s x="597" y="49" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">REQUIRED</text></g><g data-pn="cmds" style="cursor:pointer"><rect x="310" y="72" width="300" height="38" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="323" y="95.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12.5" fill="#3f4d59">commands/</text><text data-s x="597" y="95" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">SLASH COMMANDS</text></g><g data-pn="skills" style="cursor:pointer"><rect x="310" y="118" width="300" height="38" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="323" y="141.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12.5" fill="#3f4d59">skills/</text><text data-s x="597" y="141" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">AGENT-INVOKED</text></g><g data-pn="agents" style="cursor:pointer"><rect x="310" y="164" width="300" height="38" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="323" y="187.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12.5" fill="#3f4d59">agents/</text><text data-s x="597" y="187" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">EXPLICIT TOOLS</text></g><g data-pn="hooks" style="cursor:pointer"><rect x="310" y="210" width="300" height="38" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="323" y="233.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12.5" fill="#3f4d59">hooks/</text><text data-s x="597" y="233" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">LIFECYCLE</text></g><g data-pn="mcp" style="cursor:pointer"><rect x="310" y="256" width="300" height="38" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="323" y="279.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12.5" fill="#3f4d59">.mcp.json</text><text data-s x="597" y="279" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">MCP SERVERS</text></g><text x="310" y="318" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6a7883">Only the manifest is required — delete the folders you do not need</text><path data-pc="t1" data-dash="1" d="M610,160 C628,160 628,44 646,44" fill="none" stroke="rgba(30,42,54,0.26)" stroke-width="1.2" stroke-dasharray="4 5" marker-end="url(#agArrow)"></path><g data-pn="t1" style="cursor:pointer"><rect x="650" y="26" width="180" height="36" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="663" y="48.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">Slash command</text></g><g data-pn="t2" style="cursor:pointer"><rect x="650" y="70" width="180" height="36" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="663" y="92.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">GitHub PR or issue</text></g><g data-pn="t3" style="cursor:pointer"><rect x="650" y="114" width="180" height="36" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="663" y="136.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">Azure DevOps item</text></g><g data-pn="t4" style="cursor:pointer"><rect x="650" y="158" width="180" height="36" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="663" y="180.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">Session lifecycle</text></g><path data-pc="o1" data-dash="1" d="M830,110 C842,110 842,44 856,44" fill="none" stroke="rgba(30,42,54,0.26)" stroke-width="1.2" stroke-dasharray="4 5" marker-end="url(#agArrow)"></path><g data-pn="o1" style="cursor:pointer"><rect x="860" y="26" width="180" height="36" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="873" y="48.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">PR review comment</text></g><g data-pn="o2" style="cursor:pointer"><rect x="860" y="70" width="180" height="36" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="873" y="92.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">Fix pull request</text></g><g data-pn="o3" style="cursor:pointer"><rect x="860" y="114" width="180" height="36" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="873" y="136.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">Docs pull request</text></g><g data-pn="o4" style="cursor:pointer"><rect x="860" y="158" width="180" height="36" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="873" y="180.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">HTML report</text></g><g data-pn="o5" style="cursor:pointer"><rect x="860" y="202" width="180" height="36" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="873" y="224.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">Markdown file</text></g><text x="40" y="352" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6a7883" letter-spacing="1.8">OFFICIAL CATALOGUE — TWELVE PLUGINS, ONE PER JOB</text><g data-pn="c1" style="cursor:pointer"><rect x="40" y="364" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="53" y="385.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">arch-fitness</text><text data-s x="357" y="385" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">ARCHITECTURE</text></g><g data-pn="c2" style="cursor:pointer"><rect x="382" y="364" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="395" y="385.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">chatbot-tester</text><text data-s x="699" y="385" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">TESTING</text></g><g data-pn="c3" style="cursor:pointer"><rect x="724" y="364" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="737" y="385.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">code-archaeology-analyst</text><text data-s x="1041" y="385" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">CODE ANALYSIS</text></g><g data-pn="c4" style="cursor:pointer"><rect x="40" y="404" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="53" y="425.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">doc-writer</text><text data-s x="357" y="425" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">DOCUMENTATION</text></g><g data-pn="c5" style="cursor:pointer"><rect x="382" y="404" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="395" y="425.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">impact-analyst</text><text data-s x="699" y="425" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">IMPACT</text></g><g data-pn="c6" style="cursor:pointer"><rect x="724" y="404" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="737" y="425.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">perf-optimizer</text><text data-s x="1041" y="425" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">PERFORMANCE</text></g><g data-pn="c7" style="cursor:pointer"><rect x="40" y="444" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="53" y="465.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">pr-comment-resolver</text><text data-s x="357" y="465" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">CODE REVIEW</text></g><g data-pn="c8" style="cursor:pointer"><rect x="382" y="444" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="395" y="465.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">pr-reviewer</text><text data-s x="699" y="465" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">CODE REVIEW</text></g><g data-pn="c9" style="cursor:pointer"><rect x="724" y="444" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="737" y="465.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">req-analyst</text><text data-s x="1041" y="465" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">REQUIREMENTS</text></g><g data-pn="c10" style="cursor:pointer"><rect x="40" y="484" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="53" y="505.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">test-strategist</text><text data-s x="357" y="505" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">TESTING</text></g><g data-pn="c11" style="cursor:pointer"><rect x="382" y="484" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="395" y="505.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">ux-mob-process</text><text data-s x="699" y="505" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">UX DESIGN</text></g><g data-pn="c12" style="cursor:pointer"><rect x="724" y="484" width="330" height="34" fill="#ffffff" stroke="rgba(30,42,54,0.14)" stroke-width="1"></rect><text data-t x="737" y="505.5" font-family="Space Grotesk, sans-serif" font-weight="500" font-size="12" fill="#3f4d59">web-app-tester</text><text data-s x="1041" y="505" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="9" fill="#6a7883" letter-spacing="1.3">TESTING</text></g><text x="40" y="540" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6a7883">Trust a plugin before installing it — 99x does not control third-party MCP servers or their updates</text></svg></div></div></div>
+  <div data-a="cap" style="height:176px;display:grid;grid-template-columns:560px minmax(0,1fr);gap:56px;align-items:start;border-top:1px solid rgba(30,42,54,0.14);padding-top:22px">
+    <div><div data-pcap-meta style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:#2a6f97"></div><div data-pcap-title style="margin-top:10px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:32px;line-height:1.18;letter-spacing:-0.02em;color:#16212c"></div></div>
+    <div data-pcap-body style="font-size:22px;line-height:1.55;color:#54636f;text-wrap:pretty"></div>
+  </div>
+</section>
+</div>
+<nav style="position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:10;display:flex;align-items:center;gap:6px;padding:6px;background:rgba(255,255,255,0.86);backdrop-filter:blur(12px);border:1px solid rgba(30,42,54,0.14);box-shadow:0 8px 28px rgba(22,33,44,0.12)">
+  <a href="05-the-model.dc.html" style="display:inline-flex;align-items:center;gap:8px;padding:11px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:#16212c;border:1px solid rgba(30,42,54,0.18);background:#ffffff" style-hover="border-color:#2a6f97;color:#2a6f97">&larr; Previous</a>
+  <span style="padding:0 14px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;color:#6a7883">06 / 16</span>
+  <a href="07-agent-loop.dc.html" style="display:inline-flex;align-items:center;gap:8px;padding:11px 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:#ffffff;background:#2a6f97;border:1px solid #2a6f97" style-hover="background:#16212c;border-color:#16212c">Next &rarr;</a>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const PREV = "05-the-model.dc.html", NEXT = "07-agent-loop.dc.html";
+    const fit = () => {
+      const st = document.querySelector('[data-stage]');
+      if (!st) return;
+      const NAV = 76, h = window.innerHeight - NAV;
+      const s = Math.min((window.innerWidth - 24) / 1920, (h - 16) / 1080);
+      st.style.top = (h / 2 + 4) + 'px';
+      st.style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    this._key = (e) => {
+      const t = e.target && e.target.tagName;
+      if (t === 'INPUT' || t === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') location.href = NEXT;
+      else if (e.key === 'ArrowLeft' || e.key === 'PageUp') location.href = PREV;
+    };
+    window.addEventListener('keydown', this._key);
+    const boot = (n) => {
+      if (this._booted) return;
+      const sec = document.querySelector('section[data-slide]');
+      if (!sec || (!window.anime && n < 120)) { if (n < 400) setTimeout(() => boot(n + 1), 50); return; }
+      this._booted = true;
+      fit();
+      ['_agentLoop', '_reviewLoop', '_skillLoop', '_hubLoop', '_pluginLoop', '_contextLoop', '_wholeLoop'].forEach((k) => { try { this[k](); } catch (e) {} });
+      sec.querySelectorAll('[data-draw]').forEach((p) => {
+        const o = p.style.strokeDashoffset || '0';
+        p.style.transition = 'none'; p.style.strokeDashoffset = o; p.getBoundingClientRect();
+        p.style.transition = 'stroke-dashoffset 2.2s cubic-bezier(.35,.9,.25,1)'; p.style.strokeDashoffset = '0';
+      });
+      sec.querySelectorAll('[data-fade-in]').forEach((p) => { p.style.transition = 'opacity 1s ease-out'; p.style.opacity = p.getAttribute('data-fade-in') || '1'; });
+      try { this._capWatch(); this._pulse(); this._enter(sec); } catch (e) {}
+    };
+    boot(0);
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._key); }
+  _agentLoop() {
+    const stage = document.querySelector('[data-agentloop]');
+    if (!stage) return;
+    const S = [
+      ['entry','Onboarding Agent','Push','One instruction starts it','The agent folder is copied into the repo and told to read onboard.md. Nothing is stamped in yet — what ships in the repository is a framework skeleton and a protocol, not a rule book.'],
+      ['branch','Onboarding Agent','Push','Fresh or mature changes the method','A greenfield repo has no conventions to learn; an existing one already has them, encoded in its code. The agent takes a different route for each instead of applying one template to both.'],
+      ['interview','Onboarding Agent','Push','Fresh: nine questions','Purpose, stack, domain language, architectural decisions, constraints. The rules are written from the team’s answers in the team’s own words — the agent listens rather than imposing defaults.'],
+      ['archaeology','Onboarding Agent','Push','Mature: read the code first','Architecture mapping, pattern extraction, a due-diligence audit and debt classification all happen before a single rule is written, so the generated framework inherits the project’s conventions instead of overwriting them.'],
+      ['files','Onboarding Agent','Push','The governance layer is generated','A master rule file plus rules, skills, guidelines and ops templates land in the project’s docs folder. The master rule file is a routing table — if it reads like a wall of text, the diagnostics agent will say so later.'],
+      ['report','Onboarding Agent','Push','Hand off with the gaps named','A completion report flags everything that still needs an engineer’s judgement. Session one ends here, deliberately: setup and delivery are different conversations.'],
+      ['handoff','Experience Agent','Ambient','The agent becomes the environment','Open a new session and the master rule file loads automatically. The experience agent is never invoked — it is what the assistant *becomes* inside an onboarded repo, which is why it cannot be forgotten under deadline.'],
+      ['inception','Experience Agent','Ambient','Intent before tickets','What, why, and what success looks like, written from the user’s perspective — with an AI risk level set up front: minimal, limited or high.'],
+      ['design','Experience Agent','Ambient','Contracts locked before units','Phase 0 settles the API surface, data model and architecture decisions. These become binding constraints on everything elaborated afterwards, which is what stops generated code from inventing its own interfaces.'],
+      ['elab','Experience Agent','Ambient','Mob elaboration, one unit per turn','Acceptance criteria are confirmed before edge cases, observability is specified per unit, and nothing is written to disk until the engineer signs off. Interactive or plan-first — the engineer picks the mode. Units now exist, so delivery estimates can be computed from them.'],
+      ['bolt','Experience Agent','Ambient','Risk assessed before execution','Blast radius, rollback options and whether a feature flag is required — decided before the first unit runs, not after something breaks in production.'],
+      ['build','Experience Agent','Ambient','One unit at a time','Output is reviewed before the next unit starts, and a circuit breaker halts the run if generation fails three times in a row rather than letting an agent dig deeper.'],
+      ['uat','Experience Agent','Ambient','A demo script written from the ACs','The acceptance criteria are turned into a plain-language walkthrough, each step recorded pass or fail, and a sign-off written before the intent can be marked implemented.'],
+      ['retro','Experience Agent','Ambient','The loop tightens itself','Findings become improvement proposals; approved changes are applied to the rules and skills files; knowledge promotion pushes genuinely generic lessons back to the base repo. The next bolt starts from stricter rules than this one did.'],
+      ['diag','Diagnostics Agent','Pull','Someone still has to audit the process','Run against whatever artifacts the team already keeps — tickets, PR descriptions, retro notes — it scores six process domains, optionally reviews people and tooling, and returns a scorecard, a gap analysis and a single first action.']
+    ];
+    const EXTRA = { elab: ['est2'], retro: ['returnPath'] };
+    const order = S.map((s) => s[0]);
+    const nodes = new Map();
+    stage.querySelectorAll('[data-n]').forEach((el) => nodes.set(el.getAttribute('data-n'), el));
+    const conns = [];
+    stage.querySelectorAll('[data-c]').forEach((el) => {
+      conns.push([el.getAttribute('data-c'), el, el.getAttribute('stroke-dasharray') || '']);
+    });
+    const meta = document.querySelector('[data-cap-meta]');
+    const title = document.querySelector('[data-cap-title]');
+    const body = document.querySelector('[data-cap-body]');
+    const ticks = Array.from(document.querySelectorAll('[data-tick]'));
+    const playBtn = document.querySelector('[data-agentplay]');
+    const scroller = document.querySelector('[data-agentscroll]');
+    const pad = (n) => (n < 10 ? '0' + n : '' + n);
+
+    const paint = (i) => {
+      const s = S[i];
+      const lit = [s[0]].concat(EXTRA[s[0]] || []);
+      nodes.forEach((el, id) => {
+        const active = lit.indexOf(id) > -1;
+        const idx = order.indexOf(id);
+        const visited = idx > -1 && idx < i;
+        const rect = el.querySelector('rect');
+        el.style.transition = 'filter .45s ease';
+        if (rect) {
+          rect.style.transition = 'fill .45s ease, stroke .45s ease';
+          rect.setAttribute('stroke', active ? '#2a6f97' : visited ? 'rgba(42,111,151,0.42)' : 'rgba(30,42,54,0.14)');
+          rect.setAttribute('stroke-width', active ? '1.7' : '1');
+          rect.setAttribute('fill', active ? '#e4edf3' : '#ffffff');
+        }
+        el.style.filter = active ? 'drop-shadow(0 0 14px rgba(42,111,151,0.35))' : 'none';
+        el.querySelectorAll('[data-t]').forEach((t) => { t.setAttribute('fill', active ? '#16212c' : visited ? '#3f4d59' : '#3f4d59'); });
+        el.querySelectorAll('[data-s]').forEach((t) => { t.setAttribute('fill', active ? '#2a6f97' : visited ? '#66747f' : '#6a7883'); });
+        el.querySelectorAll('[data-s2]').forEach((t) => { t.setAttribute('fill', active ? '#54636f' : '#6a7883'); });
+      });
+      conns.forEach(([to, el, dash]) => {
+        const active = lit.indexOf(to) > -1;
+        const idx = order.indexOf(to);
+        const done = idx > -1 && idx <= i;
+        el.setAttribute('stroke', active ? '#2a6f97' : done ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.26)');
+        el.setAttribute('marker-end', active || done ? 'url(#agArrowOn)' : 'url(#agArrow)');
+        if (active) {
+          el.setAttribute('stroke-dasharray', '7 7');
+          el.style.animation = 'agDash .7s linear infinite';
+        } else {
+          el.style.animation = 'none';
+          if (dash) el.setAttribute('stroke-dasharray', dash); else el.removeAttribute('stroke-dasharray');
+        }
+      });
+      const rl = stage.querySelector('[data-rl]');
+      if (rl) rl.setAttribute('fill', s[0] === 'retro' ? '#2a6f97' : '#6a7883');
+      if (meta) meta.innerHTML = 'Step ' + pad(i + 1) + ' / ' + pad(S.length) + ' &nbsp;·&nbsp; ' + s[1] + ' &nbsp;·&nbsp; ' + s[2];
+      if (title) title.textContent = s[3];
+      if (body) body.textContent = s[4];
+      ticks.forEach((t, n) => { t.style.background = n === i ? '#2a6f97' : n < i ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.2)'; });
+      if (scroller && scroller.scrollWidth > scroller.clientWidth) {
+        const el = nodes.get(s[0]);
+        if (el && el.getBBox) {
+          const bb = el.getBBox();
+          const ratio = scroller.scrollWidth / 1080;
+          const target = bb.x * ratio + (bb.width * ratio - scroller.clientWidth) / 2;
+          scroller.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+        }
+      }
+      this._agStep = i;
+    };
+
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._agStep = 0;
+    paint(0);
+    const advance = () => paint((this._agStep + 1) % S.length);
+    const start = () => {
+      if (this._agTimer || reduce) return;
+      this._agTimer = setInterval(advance, 3400);
+      if (playBtn) playBtn.textContent = 'Pause';
+    };
+    const stop = () => {
+      if (this._agTimer) { clearInterval(this._agTimer); this._agTimer = null; }
+      if (playBtn) playBtn.textContent = 'Play';
+    };
+    this._agStop = stop;
+    if (playBtn) playBtn.addEventListener('click', () => { this._agUser = true; this._agTimer ? stop() : start(); });
+    ticks.forEach((t, n) => t.addEventListener('click', () => { stop(); this._agUser = true; paint(n); }));
+    stage.addEventListener('click', (e) => {
+      const g = e.target.closest ? e.target.closest('[data-n]') : null;
+      if (!g) return;
+      const i = order.indexOf(g.getAttribute('data-n'));
+      if (i > -1) { stop(); this._agUser = true; paint(i); }
+    });
+    if (reduce) { if (playBtn) playBtn.textContent = 'Play'; return; }
+    if ('IntersectionObserver' in window) {
+      this._agIo = new IntersectionObserver((es) => {
+        es.forEach((e) => { if (e.isIntersecting) { if (!this._agUser) start(); } else stop(); });
+      }, { threshold: 0.25 });
+      this._agIo.observe(stage);
+    } else {
+      start();
+    }
+  }
+  _reviewLoop() {
+    const stage = document.querySelector('[data-reviewloop]');
+    if (!stage) return;
+    const S = [
+      ['boot',['boot'],'Bootstrap','It runs at any stage of adoption','Copy the agent folder in and point the assistant at role-play.md. It works whether the framework is fully installed, half-adopted, or absent entirely — which is exactly what makes it usable as a readiness check before anyone commits to onboarding.'],
+      ['intake',['intake','chip1','chip2','chip3','chip4'],'Intake','You share; it never goes looking','The reviewer never asks for files by path. You hand over whatever represents how the team actually works — tickets, pull request descriptions, retro notes, incident records — and it scores those against AI-DLC principles.'],
+      ['scope',['scope'],'Scope','Six domains always, two by choice','Process review always runs. People and Tools are opted into at the start, because both are conversations with the team rather than a read of artifacts, and they cost real time.'],
+      ['d1',['d1'],'Domain 1 · Foundation','Is the master rule file a routing table?','Or has it grown into a wall of text nobody loads? Completeness and accuracy of each section are checked against the rubric.'],
+      ['d2',['d2'],'Domain 2 · Inception','Are intents written from the user’s perspective?','And do elaboration sessions actually follow the turn structure, or has the ceremony quietly collapsed into a single prompt?'],
+      ['d3',['d3'],'Domain 3 · Build','Are acceptance criteria testable?','Is scope bounded per unit, and are pre-generation checks being run at all? Unit and bolt files are read directly.'],
+      ['d4',['d4'],'Domain 4 · Operate','Do retros close the loop?','The test is not whether improvements were discussed — it is whether they were applied to the target rules and skills files, and whether RCA discipline holds after incidents.'],
+      ['d5',['d5'],'Domain 5 · Process adherence','Some things only a conversation reveals','No artifact shows whether the quality gate is actually enforced, or whether acceptance criteria get challenged rather than passively accepted. So this domain is assessed by talking to the team.'],
+      ['d6',['d6'],'Domain 6 · Organization','Assessed passively, from where things live','Nothing is requested for this domain. The agent judges structure from the locations you happened to fetch everything else from — because where artifacts live is itself a signal.'],
+      ['d7',['d7','d8'],'Optional · People and Tools','Two deeper conversations, if you want them','People profiles Forward Deployed Engineer skills across five capability areas — per person, then as a team aggregate. Tools classifies automation posture across nine pipeline stages and returns a tier table with specific gaps.'],
+      ['r1',['r1','r2','r3'],'Report · Scores and findings','Severity before volume','Each domain lands as Aligned, Partially aligned, Not aligned or Skipped. Findings are ordered Critical, then Important, then Advisory — each naming the observed gap, the principle it violates, and the specific change recommended.'],
+      ['r4',['r4','r5','r6'],'Report · Analysis','Compared against your own history','Gap analysis maps every finding to the principle behind it, with current state and target state. Trend analysis scores against past reports — New, Recurring, Resolved, Worsened — or sets the baseline if this is the first review.'],
+      ['r7',['r7','r8','r9'],'Report · What to do next','One first action, not twenty','Immediate, short-term and long-term actions, each with a verification signal, produced only when Critical or Important findings exist. Then a single highest-impact First Action — because a list of twenty fixes is a way of doing none of them.']
+    ];
+    const order = S.map((s) => s[0]);
+    const nodes = new Map();
+    stage.querySelectorAll('[data-rn]').forEach((el) => nodes.set(el.getAttribute('data-rn'), el));
+    const conns = [];
+    stage.querySelectorAll('[data-rc]').forEach((el) => conns.push([el.getAttribute('data-rc'), el, el.getAttribute('stroke-dasharray') || '']));
+    const scroller = document.querySelector('[data-reviewscroll]');
+    const meta = document.querySelector('[data-rcap-meta]');
+    const title = document.querySelector('[data-rcap-title]');
+    const body = document.querySelector('[data-rcap-body]');
+    const ticks = Array.from(document.querySelectorAll('[data-rtick]'));
+    const playBtn = document.querySelector('[data-reviewplay]');
+    const pad = (n) => (n < 10 ? '0' + n : '' + n);
+    const rank = new Map();
+    S.forEach((s, i) => s[1].forEach((id) => { if (!rank.has(id)) rank.set(id, i); }));
+
+    const paint = (i) => {
+      const s = S[i];
+      const lit = s[1];
+      nodes.forEach((el, id) => {
+        const active = lit.indexOf(id) > -1;
+        const r = rank.has(id) ? rank.get(id) : 999;
+        const visited = r < i;
+        const rect = el.querySelector('rect');
+        el.style.transition = 'filter .45s ease';
+        if (rect) {
+          rect.style.transition = 'fill .45s ease, stroke .45s ease';
+          rect.setAttribute('stroke', active ? '#2a6f97' : visited ? 'rgba(42,111,151,0.42)' : 'rgba(30,42,54,0.14)');
+          rect.setAttribute('stroke-width', active ? '1.7' : '1');
+          rect.setAttribute('fill', active ? '#e4edf3' : '#ffffff');
+        }
+        el.style.filter = active ? 'drop-shadow(0 0 14px rgba(42,111,151,0.35))' : 'none';
+        el.querySelectorAll('[data-t]').forEach((t) => t.setAttribute('fill', active ? '#16212c' : '#3f4d59'));
+        el.querySelectorAll('[data-s]').forEach((t) => t.setAttribute('fill', active ? '#2a6f97' : '#6a7883'));
+      });
+      conns.forEach(([to, el, dash]) => {
+        const active = lit.indexOf(to) > -1;
+        const r = rank.has(to) ? rank.get(to) : 999;
+        const done = r <= i;
+        el.setAttribute('stroke', active ? '#2a6f97' : done ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.26)');
+        el.setAttribute('marker-end', active || done ? 'url(#agArrowOn)' : 'url(#agArrow)');
+        if (active) { el.setAttribute('stroke-dasharray', '7 7'); el.style.animation = 'agDash .7s linear infinite'; }
+        else { el.style.animation = 'none'; if (dash) el.setAttribute('stroke-dasharray', dash); }
+      });
+      if (meta) meta.innerHTML = 'Step ' + pad(i + 1) + ' / ' + pad(S.length) + ' &nbsp;&middot;&nbsp; ' + s[2];
+      if (title) title.textContent = s[3];
+      if (body) body.textContent = s[4];
+      ticks.forEach((t, n) => { t.style.background = n === i ? '#2a6f97' : n < i ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.2)'; });
+      if (scroller && scroller.scrollWidth > scroller.clientWidth) {
+        const el = nodes.get(s[0]);
+        if (el && el.getBBox) {
+          const bb = el.getBBox();
+          const ratio = scroller.scrollWidth / 1080;
+          const target = bb.x * ratio + (bb.width * ratio - scroller.clientWidth) / 2;
+          scroller.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+        }
+      }
+      this._rvStep = i;
+    };
+
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._rvStep = 0;
+    paint(0);
+    const advance = () => paint((this._rvStep + 1) % S.length);
+    const start = () => { if (this._rvTimer || reduce) return; this._rvTimer = setInterval(advance, 3400); if (playBtn) playBtn.textContent = 'Pause'; };
+    const stop = () => { if (this._rvTimer) { clearInterval(this._rvTimer); this._rvTimer = null; } if (playBtn) playBtn.textContent = 'Play'; };
+    this._rvStop = stop;
+    if (playBtn) playBtn.addEventListener('click', () => { this._rvUser = true; this._rvTimer ? stop() : start(); });
+    ticks.forEach((t, n) => t.addEventListener('click', () => { stop(); this._rvUser = true; paint(n); }));
+    stage.addEventListener('click', (e) => {
+      const g = e.target.closest ? e.target.closest('[data-rn]') : null;
+      if (!g) return;
+      const id = g.getAttribute('data-rn');
+      const i = rank.has(id) ? rank.get(id) : -1;
+      if (i > -1) { stop(); this._rvUser = true; paint(i); }
+    });
+    if (reduce) { if (playBtn) playBtn.textContent = 'Play'; return; }
+    if ('IntersectionObserver' in window) {
+      this._rvIo = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { if (!this._rvUser) start(); } else stop(); }); }, { threshold: 0.25 });
+      this._rvIo.observe(stage);
+    } else { start(); }
+  }
+  _skillLoop() {
+    const stage = document.querySelector('[data-skillloop]');
+    if (!stage) return;
+    const S = [
+      ['keep',['keep'],'Premise','Nothing about your process changes','No master rule file is generated, no governance structure is imposed, and no ceremony is added. A team with a working AI-assisted process keeps it, and borrows only the pieces it is missing.'],
+      ['interview5',['interview5','q1','q2','q3','q4','q5'],'Step 1 · Discovery','Five questions, then recommendations','How the team works today, where AI assistance already helps, the failure modes that keep recurring, how stakeholders are kept informed, and the gap worth filling. The answers decide what gets flagged as recommended — nobody is handed the full list and left to guess.'],
+      ['s1',['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14','f1','f2','f3'],'Step 2 · Catalogue','Seventeen skills, grouped by moment','Planning and design, quality and acceptance, incident and root cause, retrospective and review, communication and reporting, maintenance and health, new team members, workflow shortcuts. Each skill is one markdown file: a prompt protocol read to the assistant when that moment arrives.'],
+      ['legend',['legend'],'Step 2 · Classification','Every skill states its dependency','Standalone skills work on their own. Needs-config skills want one small value at invocation — an archive threshold, an output path. Framework-only skills need the full framework underneath, and the agent warns you before installing one.'],
+      ['s2',['s2','s3','s4','s5'],'Step 3 · Recommendation','Flagged against the gaps you named','A team that described weak acceptance and repeat incidents gets design session, risk assessment, UAT sign-off and root cause analysis marked with a star. Relevance comes from their answers, not from a default bundle.'],
+      ['f1',['f1','f2','f3','legend'],'Step 3 · Selection','The three that will not work alone','Bug bolt, NFR bolt and new engineer induction assume the framework is installed. They can still be copied in as reference material for a team that expects to adopt fully later — but the agent flags the dependency first rather than letting them fail on first use.'],
+      ['location',['location'],'Step 4 · Location','You choose where they live','docs/ai-skills/, process/skills/, or wherever fits the repo already. The framework does not claim a folder, which is the point of this route.'],
+      ['files',['files'],'Step 5 · Installation','Only the selected files are copied','The skill files land at the chosen path. Nothing else is written, and nothing existing is rewritten.'],
+      ['card',['card'],'Step 6 · Adoption card','One page so the skills get used','A single reference document listing every installed skill, the phrase that invokes it, what it produces, and any configuration needed. Without it, installed skills are forgotten within a fortnight.'],
+      ['upgrade',['upgrade'],'Later · Upgrading','Bottom-up does not become a dead end','If the team decides to adopt the full framework afterwards, the onboarding agent takes its archaeology path: it reads what has already been built and generates governance that matches the real conventions. The skills already installed carry over unchanged.']
+    ];
+    const nodes = new Map();
+    stage.querySelectorAll('[data-sn]').forEach((el) => nodes.set(el.getAttribute('data-sn'), el));
+    const conns = [];
+    stage.querySelectorAll('[data-sc]').forEach((el) => conns.push([el.getAttribute('data-sc'), el, el.getAttribute('stroke-dasharray') || '']));
+    const scroller = document.querySelector('[data-skillscroll]');
+    const meta = document.querySelector('[data-scap-meta]');
+    const title = document.querySelector('[data-scap-title]');
+    const body = document.querySelector('[data-scap-body]');
+    const ticks = Array.from(document.querySelectorAll('[data-stick]'));
+    const playBtn = document.querySelector('[data-skillplay]');
+    const pad = (n) => (n < 10 ? '0' + n : '' + n);
+    const rank = new Map();
+    S.forEach((s, i) => s[1].forEach((id) => { if (!rank.has(id)) rank.set(id, i); }));
+
+    const paint = (i) => {
+      const s = S[i];
+      const lit = s[1];
+      nodes.forEach((el, id) => {
+        const active = lit.indexOf(id) > -1;
+        const rect = el.querySelector('rect');
+        el.style.transition = 'filter .45s ease';
+        if (rect) {
+          const r = rank.has(id) ? rank.get(id) : 999;
+          rect.style.transition = 'fill .45s ease, stroke .45s ease';
+          rect.setAttribute('stroke', active ? '#2a6f97' : r < i ? 'rgba(42,111,151,0.42)' : 'rgba(30,42,54,0.14)');
+          rect.setAttribute('stroke-width', active ? '1.7' : '1');
+          rect.setAttribute('fill', active ? '#e4edf3' : '#ffffff');
+        }
+        el.style.filter = active ? 'drop-shadow(0 0 14px rgba(42,111,151,0.35))' : 'none';
+        el.querySelectorAll('[data-t]').forEach((t) => t.setAttribute('fill', active ? '#16212c' : '#3f4d59'));
+        el.querySelectorAll('[data-s]').forEach((t) => t.setAttribute('fill', active ? '#2a6f97' : '#6a7883'));
+      });
+      conns.forEach(([to, el, dash]) => {
+        const active = lit.indexOf(to) > -1;
+        const r = rank.has(to) ? rank.get(to) : 999;
+        el.setAttribute('stroke', active ? '#2a6f97' : r <= i ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.26)');
+        el.setAttribute('marker-end', active || r <= i ? 'url(#agArrowOn)' : 'url(#agArrow)');
+        if (active) { el.setAttribute('stroke-dasharray', '7 7'); el.style.animation = 'agDash .7s linear infinite'; }
+        else { el.style.animation = 'none'; if (dash) el.setAttribute('stroke-dasharray', dash); }
+      });
+      if (meta) meta.innerHTML = 'Step ' + pad(i + 1) + ' / ' + pad(S.length) + ' &nbsp;&middot;&nbsp; ' + s[2];
+      if (title) title.textContent = s[3];
+      if (body) body.textContent = s[4];
+      ticks.forEach((t, n) => { t.style.background = n === i ? '#2a6f97' : n < i ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.2)'; });
+      if (scroller && scroller.scrollWidth > scroller.clientWidth) {
+        const el = nodes.get(s[0]);
+        if (el && el.getBBox) {
+          const bb = el.getBBox();
+          const ratio = scroller.scrollWidth / 1080;
+          const target = bb.x * ratio + (bb.width * ratio - scroller.clientWidth) / 2;
+          scroller.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+        }
+      }
+      this._skStep = i;
+    };
+
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._skStep = 0;
+    paint(0);
+    const advance = () => paint((this._skStep + 1) % S.length);
+    const start = () => { if (this._skTimer || reduce) return; this._skTimer = setInterval(advance, 3600); if (playBtn) playBtn.textContent = 'Pause'; };
+    const stop = () => { if (this._skTimer) { clearInterval(this._skTimer); this._skTimer = null; } if (playBtn) playBtn.textContent = 'Play'; };
+    this._skStop = stop;
+    if (playBtn) playBtn.addEventListener('click', () => { this._skUser = true; this._skTimer ? stop() : start(); });
+    ticks.forEach((t, n) => t.addEventListener('click', () => { stop(); this._skUser = true; paint(n); }));
+    stage.addEventListener('click', (e) => {
+      const g = e.target.closest ? e.target.closest('[data-sn]') : null;
+      if (!g) return;
+      const id = g.getAttribute('data-sn');
+      const i = rank.has(id) ? rank.get(id) : -1;
+      if (i > -1) { stop(); this._skUser = true; paint(i); }
+    });
+    if (reduce) { if (playBtn) playBtn.textContent = 'Play'; return; }
+    if ('IntersectionObserver' in window) {
+      this._skIo = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { if (!this._skUser) start(); } else stop(); }); }, { threshold: 0.25 });
+      this._skIo.observe(stage);
+    } else { start(); }
+  }
+  _hubLoop() {
+    const stage = document.querySelector('[data-hubloop]');
+    if (!stage) return;
+    const S = [
+      ['team',['team'],'Team','One ownership boundary for everything','Actors, keys, workflows, activity catalogues and usage all belong to a team. Scoping first is what makes attribution possible later — usage that arrives without an owner is a number nobody acts on.'],
+      ['actors',['actors'],'Actors','Humans and systems are both first-class','Each participant is registered on the team: engineers linked to a Hub user, and non-user systems such as a review agent. Because agents are registered the same way people are, the split between them becomes measurable rather than anecdotal.'],
+      ['workflow',['workflow'],'Workflow','Model the process before measuring it','A workflow describes the real steps on a canvas. Each node declares its activities, and each activity carries an actor mode: human, agent, or both. Saving the workflow gives every node a stable id, which is what ingest addresses.'],
+      ['keys',['keys','a1','a2','a3'],'Credentials','Three ways in, one that is refused','A webhook URL can carry its secret in the path, for providers that cannot set headers. Pipelines that can send headers use a team key or a personal access token as a bearer. A dashboard login token is never valid for ingest.'],
+      ['src1',['src1','src2','src3','src4'],'Sources','Anything that can POST JSON reports in','Delivery pipelines, GitHub-style webhooks, the framework’s own AI Hub metrics skill, or a bespoke script. Nothing has to be rewritten to participate — which is the difference between an observability layer that gets adopted and one that does not.'],
+      ['epActivity',['epActivity','epNode'],'Endpoints','Two, and the choice is about what you know','If your pipeline knows the saved activity id, post to the activity-scoped endpoint and the workflow, node and activity all resolve from the URL. If it only knows the node and an activity name, post to the node endpoint and Hub maps the name — creating the catalogue entry if it is new.'],
+      ['mapping',['mapping'],'Mapping','Your payload, not Hub’s','Activity webhooks accept arbitrary JSON. JSONPath mappings translate whatever your tool already emits into Hub fields, and inbound filters drop events you do not want — answering 202 so the sender never fails.'],
+      ['event',['event'],'The event','Four facts, nothing more','A correlation id ties the step to its larger task, actors record who took part, and dimensions carry tokens, cost and model. Keeping the shape this small is why so many different systems can feed the same dashboard.'],
+      ['attribution',['attribution'],'Attribution','Names are resolved, not guessed','Each actor string — an email, a username, a catalogue name — is matched to an existing actor or creates one. From there usage rolls up by team member and by agent without anyone tagging events by hand.'],
+      ['home',['home','wf'],'Dashboards','Two questions, two views','Home answers how much and which way it is trending. Opening a workflow answers where it came from, as a filterable list of events against the process steps you modelled at the start.']
+    ];
+    const nodes = new Map();
+    stage.querySelectorAll('[data-hn]').forEach((el) => nodes.set(el.getAttribute('data-hn'), el));
+    const conns = [];
+    stage.querySelectorAll('[data-hc]').forEach((el) => conns.push([el.getAttribute('data-hc'), el, el.getAttribute('stroke-dasharray') || '']));
+    const scroller = document.querySelector('[data-hubscroll]');
+    const meta = document.querySelector('[data-hcap-meta]');
+    const title = document.querySelector('[data-hcap-title]');
+    const body = document.querySelector('[data-hcap-body]');
+    const ticks = Array.from(document.querySelectorAll('[data-htick]'));
+    const playBtn = document.querySelector('[data-hubplay]');
+    const pad = (n) => (n < 10 ? '0' + n : '' + n);
+    const rank = new Map();
+    S.forEach((s, i) => s[1].forEach((id) => { if (!rank.has(id)) rank.set(id, i); }));
+
+    const paint = (i) => {
+      const s = S[i];
+      const lit = s[1];
+      nodes.forEach((el, id) => {
+        const active = lit.indexOf(id) > -1;
+        const r = rank.has(id) ? rank.get(id) : 999;
+        const rect = el.querySelector('rect');
+        el.style.transition = 'filter .45s ease';
+        if (rect) {
+          rect.style.transition = 'fill .45s ease, stroke .45s ease';
+          rect.setAttribute('stroke', active ? '#2a6f97' : r < i ? 'rgba(42,111,151,0.42)' : 'rgba(30,42,54,0.14)');
+          rect.setAttribute('stroke-width', active ? '1.7' : '1');
+          rect.setAttribute('fill', active ? '#e4edf3' : '#ffffff');
+        }
+        el.style.filter = active ? 'drop-shadow(0 0 14px rgba(42,111,151,0.35))' : 'none';
+        el.querySelectorAll('[data-t]').forEach((t) => t.setAttribute('fill', active ? '#16212c' : '#3f4d59'));
+        el.querySelectorAll('[data-s]').forEach((t) => t.setAttribute('fill', active ? '#54636f' : '#6a7883'));
+      });
+      conns.forEach(([to, el, dash]) => {
+        const active = lit.indexOf(to) > -1;
+        const r = rank.has(to) ? rank.get(to) : 999;
+        el.setAttribute('stroke', active ? '#2a6f97' : r <= i ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.26)');
+        el.setAttribute('marker-end', active || r <= i ? 'url(#agArrowOn)' : 'url(#agArrow)');
+        if (active) { el.setAttribute('stroke-dasharray', '7 7'); el.style.animation = 'agDash .7s linear infinite'; }
+        else { el.style.animation = 'none'; if (dash) el.setAttribute('stroke-dasharray', dash); }
+      });
+      if (meta) meta.innerHTML = 'Step ' + pad(i + 1) + ' / ' + pad(S.length) + ' &nbsp;&middot;&nbsp; ' + s[2];
+      if (title) title.textContent = s[3];
+      if (body) body.textContent = s[4];
+      ticks.forEach((t, n) => { t.style.background = n === i ? '#2a6f97' : n < i ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.2)'; });
+      if (scroller && scroller.scrollWidth > scroller.clientWidth) {
+        const el = nodes.get(s[0]);
+        if (el && el.getBBox) {
+          const bb = el.getBBox();
+          const ratio = scroller.scrollWidth / 1080;
+          const target = bb.x * ratio + (bb.width * ratio - scroller.clientWidth) / 2;
+          scroller.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+        }
+      }
+      this._hbStep = i;
+    };
+
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._hbStep = 0;
+    paint(0);
+    const advance = () => paint((this._hbStep + 1) % S.length);
+    const start = () => { if (this._hbTimer || reduce) return; this._hbTimer = setInterval(advance, 3600); if (playBtn) playBtn.textContent = 'Pause'; };
+    const stop = () => { if (this._hbTimer) { clearInterval(this._hbTimer); this._hbTimer = null; } if (playBtn) playBtn.textContent = 'Play'; };
+    this._hbStop = stop;
+    if (playBtn) playBtn.addEventListener('click', () => { this._hbUser = true; this._hbTimer ? stop() : start(); });
+    ticks.forEach((t, n) => t.addEventListener('click', () => { stop(); this._hbUser = true; paint(n); }));
+    stage.addEventListener('click', (e) => {
+      const g = e.target.closest ? e.target.closest('[data-hn]') : null;
+      if (!g) return;
+      const id = g.getAttribute('data-hn');
+      const i = rank.has(id) ? rank.get(id) : -1;
+      if (i > -1) { stop(); this._hbUser = true; paint(i); }
+    });
+    if (reduce) { if (playBtn) playBtn.textContent = 'Play'; return; }
+    if ('IntersectionObserver' in window) {
+      this._hbIo = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { if (!this._hbUser) start(); } else stop(); }); }, { threshold: 0.25 });
+      this._hbIo.observe(stage);
+    } else { start(); }
+  }
+  _pluginLoop() {
+    const stage = document.querySelector('[data-pluginloop]');
+    if (!stage) return;
+    const S = [
+      ['mkt',['mkt'],'Marketplace','A directory, added by reference','The marketplace is pointed at, not vendored: a GitHub owner/repo, a git URL, a remote marketplace.json, or a local folder — and it can be pinned to a branch or tag, which is how a team keeps a fleet of engineers on the same plugin versions.'],
+      ['install',['install'],'Install','One command, or browse the list','Installing names the plugin and the marketplace it came from, so two marketplaces can offer a plugin with the same name without ambiguity. Engineers who do not know what they want browse Discover instead.'],
+      ['manifest',['manifest'],'Manifest','The only required file','plugin.json carries the name, version and what to load. Everything else in the folder is optional — a plugin can be a single slash command, or a full set of agents, skills, hooks and MCP servers.'],
+      ['cmds',['cmds'],'Commands','What the engineer types','A markdown file per slash command, with frontmatter naming it. The command is the deliberate entry point: the engineer decides this is the moment for a review, an impact analysis, a test strategy.'],
+      ['skills',['skills'],'Skills','What the agent reaches for','The same flow, exposed so the assistant can invoke it without anyone typing a slash command. Commands are for intent you state; skills are for capability the agent notices it needs.'],
+      ['agents',['agents'],'Agents','Autonomous, with least privilege','Sub-agents do the actual work and declare their tools explicitly rather than inheriting everything. They are also written not to pause mid-flow for reassurance — they either complete or fail loudly.'],
+      ['hooks',['hooks'],'Hooks','Automation the user never triggers','Registered lifecycle events — session start, before a tool runs, after a tool runs — invoked through a plugin-root variable so they resolve wherever the plugin was installed.'],
+      ['mcp',['mcp'],'MCP servers','Reaching outside the repo','An optional MCP configuration connects the plugin to external systems. This is also the part that most deserves scrutiny before installing something you did not write.'],
+      ['t1',['t1','t2','t3','t4'],'Triggers','Delivery events, not just prompts','A slash command, a GitHub pull request or issue, an Azure DevOps work item, or a session lifecycle event. Plugins that fire from the delivery system are the ones that keep running after the novelty wears off.'],
+      ['o1',['o1','o2','o3','o4','o5'],'Outputs','Back where the work already lives','A structured PR review comment, a ready-to-review fix PR, a companion docs PR, an HTML report, or a local markdown file. Nothing asks the team to open another dashboard to receive the result.'],
+      ['c1',['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11','c12'],'Catalogue','Twelve narrow tools, not one broad one','Architecture fitness, chatbot and web app testing, code archaeology, documentation sync, impact analysis, performance, PR review and comment resolution, requirements grooming, test strategy, UX mob elaboration. Each does one job against one trigger — which is why they compose instead of competing.']
+    ];
+    const nodes = new Map();
+    stage.querySelectorAll('[data-pn]').forEach((el) => nodes.set(el.getAttribute('data-pn'), el));
+    const conns = [];
+    stage.querySelectorAll('[data-pc]').forEach((el) => conns.push([el.getAttribute('data-pc'), el, el.getAttribute('stroke-dasharray') || '']));
+    const scroller = document.querySelector('[data-pluginscroll]');
+    const meta = document.querySelector('[data-pcap-meta]');
+    const title = document.querySelector('[data-pcap-title]');
+    const body = document.querySelector('[data-pcap-body]');
+    const ticks = Array.from(document.querySelectorAll('[data-ptick]'));
+    const playBtn = document.querySelector('[data-pluginplay]');
+    const pad = (n) => (n < 10 ? '0' + n : '' + n);
+    const rank = new Map();
+    S.forEach((s, i) => s[1].forEach((id) => { if (!rank.has(id)) rank.set(id, i); }));
+
+    const paint = (i) => {
+      const s = S[i];
+      const lit = s[1];
+      nodes.forEach((el, id) => {
+        const active = lit.indexOf(id) > -1;
+        const r = rank.has(id) ? rank.get(id) : 999;
+        const rect = el.querySelector('rect');
+        el.style.transition = 'filter .45s ease';
+        if (rect) {
+          rect.style.transition = 'fill .45s ease, stroke .45s ease';
+          rect.setAttribute('stroke', active ? '#2a6f97' : r < i ? 'rgba(42,111,151,0.42)' : 'rgba(30,42,54,0.14)');
+          rect.setAttribute('stroke-width', active ? '1.7' : '1');
+          rect.setAttribute('fill', active ? '#e4edf3' : '#ffffff');
+        }
+        el.style.filter = active ? 'drop-shadow(0 0 14px rgba(42,111,151,0.35))' : 'none';
+        el.querySelectorAll('[data-t]').forEach((t) => t.setAttribute('fill', active ? '#16212c' : '#3f4d59'));
+        el.querySelectorAll('[data-s]').forEach((t) => t.setAttribute('fill', active ? '#2a6f97' : '#6a7883'));
+      });
+      conns.forEach(([to, el, dash]) => {
+        const active = lit.indexOf(to) > -1;
+        const r = rank.has(to) ? rank.get(to) : 999;
+        el.setAttribute('stroke', active ? '#2a6f97' : r <= i ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.26)');
+        el.setAttribute('marker-end', active || r <= i ? 'url(#agArrowOn)' : 'url(#agArrow)');
+        if (active) { el.setAttribute('stroke-dasharray', '7 7'); el.style.animation = 'agDash .7s linear infinite'; }
+        else { el.style.animation = 'none'; if (dash) el.setAttribute('stroke-dasharray', dash); }
+      });
+      if (meta) meta.innerHTML = 'Step ' + pad(i + 1) + ' / ' + pad(S.length) + ' &nbsp;&middot;&nbsp; ' + s[2];
+      if (title) title.textContent = s[3];
+      if (body) body.textContent = s[4];
+      ticks.forEach((t, n) => { t.style.background = n === i ? '#2a6f97' : n < i ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.2)'; });
+      if (scroller && scroller.scrollWidth > scroller.clientWidth) {
+        const el = nodes.get(s[0]);
+        if (el && el.getBBox) {
+          const bb = el.getBBox();
+          const ratio = scroller.scrollWidth / 1080;
+          const target = bb.x * ratio + (bb.width * ratio - scroller.clientWidth) / 2;
+          scroller.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+        }
+      }
+      this._plStep = i;
+    };
+
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._plStep = 0;
+    paint(0);
+    const advance = () => paint((this._plStep + 1) % S.length);
+    const start = () => { if (this._plTimer || reduce) return; this._plTimer = setInterval(advance, 3600); if (playBtn) playBtn.textContent = 'Pause'; };
+    const stop = () => { if (this._plTimer) { clearInterval(this._plTimer); this._plTimer = null; } if (playBtn) playBtn.textContent = 'Play'; };
+    this._plStop = stop;
+    if (playBtn) playBtn.addEventListener('click', () => { this._plUser = true; this._plTimer ? stop() : start(); });
+    ticks.forEach((t, n) => t.addEventListener('click', () => { stop(); this._plUser = true; paint(n); }));
+    stage.addEventListener('click', (e) => {
+      const g = e.target.closest ? e.target.closest('[data-pn]') : null;
+      if (!g) return;
+      const id = g.getAttribute('data-pn');
+      const i = rank.has(id) ? rank.get(id) : -1;
+      if (i > -1) { stop(); this._plUser = true; paint(i); }
+    });
+    if (reduce) { if (playBtn) playBtn.textContent = 'Play'; return; }
+    if ('IntersectionObserver' in window) {
+      this._plIo = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { if (!this._plUser) start(); } else stop(); }); }, { threshold: 0.25 });
+      this._plIo.observe(stage);
+    } else { start(); }
+  }
+  _contextLoop() {
+    const root = document.querySelector('[data-ctxcap]');
+    if (!root) return;
+    const svg = root.closest('svg');
+    const A = { decide: 0.30, code: 1, trust: 0.38, mark: 80, state: '2023', cap: 'Writing the code is the expensive part.' };
+    const B = { decide: 0.86, code: 0.20, trust: 0.94, mark: 160, state: 'Today', cap: 'Deciding and trusting are.' };
+    const bars = {};
+    svg.querySelectorAll('[data-bar]').forEach((el) => {
+      bars[el.getAttribute('data-bar')] = el;
+      el.style.transition = 'width 1s cubic-bezier(.2,.7,.2,1)';
+    });
+    const pcts = {};
+    svg.querySelectorAll('[data-pct]').forEach((el) => { pcts[el.getAttribute('data-pct')] = el; });
+    const mark = svg.querySelector('[data-ctxmark]');
+    const state = svg.querySelector('[data-ctxstate]');
+    const cap = root;
+    const apply = (s) => {
+      ['decide', 'code', 'trust'].forEach((k) => {
+        if (bars[k]) bars[k].setAttribute('width', String(Math.round(420 * s[k])));
+        if (pcts[k]) pcts[k].textContent = Math.round(s[k] * 100) + '%';
+      });
+      if (mark) mark.setAttribute('transform', 'translate(0,' + s.mark + ')');
+      if (state) state.textContent = s.state;
+      if (cap) cap.textContent = s.cap;
+      this._ctxOn = s === B;
+    };
+    apply(A);
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { apply(B); return; }
+    const tick = () => apply(this._ctxOn ? A : B);
+    if ('IntersectionObserver' in window) {
+      this._ctxIo = new IntersectionObserver((es) => {
+        es.forEach((e) => {
+          if (e.isIntersecting) { if (!this._ctxTimer) this._ctxTimer = setInterval(tick, 3200); }
+          else if (this._ctxTimer) { clearInterval(this._ctxTimer); this._ctxTimer = null; }
+        });
+      }, { threshold: 0.3 });
+      this._ctxIo.observe(svg);
+    } else {
+      this._ctxTimer = setInterval(tick, 3200);
+    }
+  }
+  _wholeLoop() {
+    const stage = document.querySelector('[data-wholeloop]');
+    if (!stage) return;
+    const S = [
+      ['st1',['st1','st2','st3','st4'],'The lifecycle','Four stages, and who owns each one','Everything else in the diagram exists to serve this row. Inception is human-led, construction is AI-led, operate and improve are shared. Naming the owner per stage is what keeps “AI-assisted” from meaning “nobody in particular”.'],
+      ['rules',['rules'],'The rules','Governance generated for this repo','The master rule file and its rules, skills and guidelines are written during onboarding — from an interview, or from reading the existing code. They are not a standards pack copied in; they are this project’s conventions, written down where both the engineer and the agent read them.'],
+      ['lagents',['lagents'],'AI-DLC process library','Process pushed top-down, run as copilots','The AI-DLC process agents own one delivery moment each: onboarding installs the framework, the experience agent governs every session, diagnostics audits, migration moves old structures, skills installs pieces, estimation prices the work. The process is set top-down, but an engineer stays in the loop at every step.'],
+      ['lskills',['lskills'],'Expert agent library','Capability pulled bottom-up, as copilots','Forty-six expert agents across twelve stores — delivery, architecture, DevOps, coding, QA, UX, pre-sales, data platform and compliance. One MCP server exposes each as a slash command in Claude Code, Cursor and GitHub Copilot, so an engineer invokes the right expert at the moment of need. This lane is what a team adopts when it is not ready to change its process — and most teams start here.'],
+      ['lplugins',['lplugins'],'Xianix plugins','Top-down autopilots, triggered by events','Twelve official plugins, each doing one job — review, impact, tests, docs, performance, archaeology. They are markdown and JSON rather than compiled code, and they fire from a pull request, an issue or a work item rather than from a prompt.'],
+      ['plat',['plat'],'The platform','Where the event-driven layer is distributed from','Xianix.ai is the control plane underneath the plugins: the marketplace they are published to, the install path, version pinning so a whole fleet runs the same versions, and the runtime they execute in. The two copilot lanes above do not depend on it — an engineer pulls a skill or an agent directly, which is why either can be adopted before any platform decision is made.'],
+      ['hub',['hub'],'AI Hub','The one layer that watches all of it','Every stage and all three capability lanes report into a modelled workflow — copilots included, which is the only way the human/agent split becomes measurable. Activities carry an actor mode, events are keyed by a correlation id, and dimensions carry tokens, cost and model. Because the process was modelled before it was measured, usage rolls up by stage, by member and by agent instead of arriving as an undifferentiated total.'],
+      ['feed',['feed','st4','loop'],'The loop closes','Measurement is an input to Improve','Dashboards and retros meet at the same stage. Findings become rule changes, rule changes are written back into the files in row two, and the next cycle begins under stricter governance than this one did. That feedback arrow is the whole reason the curve compounds rather than plateaus.']
+    ];
+    const nodes = new Map();
+    stage.querySelectorAll('[data-wn]').forEach((el) => nodes.set(el.getAttribute('data-wn'), el));
+    const conns = [];
+    stage.querySelectorAll('[data-wc]').forEach((el) => conns.push([el.getAttribute('data-wc'), el, el.getAttribute('stroke-dasharray') || '']));
+    const scroller = document.querySelector('[data-wholescroll]');
+    const meta = document.querySelector('[data-wcap-meta]');
+    const title = document.querySelector('[data-wcap-title]');
+    const body = document.querySelector('[data-wcap-body]');
+    const ticks = Array.from(document.querySelectorAll('[data-wtick]'));
+    const playBtn = document.querySelector('[data-wholeplay]');
+    const pad = (n) => (n < 10 ? '0' + n : '' + n);
+    const rank = new Map();
+    S.forEach((s, i) => s[1].forEach((id) => { if (!rank.has(id)) rank.set(id, i); }));
+
+    const paint = (i) => {
+      const s = S[i];
+      const lit = s[1];
+      nodes.forEach((el, id) => {
+        const active = lit.indexOf(id) > -1;
+        const r = rank.has(id) ? rank.get(id) : 999;
+        const rect = el.querySelector('rect');
+        el.style.transition = 'filter .45s ease';
+        if (rect) {
+          rect.style.transition = 'fill .45s ease, stroke .45s ease';
+          rect.setAttribute('stroke', active ? '#2a6f97' : r < i ? 'rgba(42,111,151,0.42)' : 'rgba(30,42,54,0.14)');
+          rect.setAttribute('stroke-width', active ? '1.7' : '1');
+          rect.setAttribute('fill', active ? '#e4edf3' : '#ffffff');
+        }
+        el.style.filter = active ? 'drop-shadow(0 0 14px rgba(42,111,151,0.35))' : 'none';
+        el.querySelectorAll('[data-t]').forEach((t) => t.setAttribute('fill', active ? '#16212c' : '#3f4d59'));
+        el.querySelectorAll('[data-s]').forEach((t) => t.setAttribute('fill', active ? '#2a6f97' : '#6a7883'));
+        el.querySelectorAll('[data-s2]').forEach((t) => t.setAttribute('fill', active ? '#54636f' : '#6a7883'));
+      });
+      conns.forEach(([to, el, dash]) => {
+        const active = lit.indexOf(to) > -1;
+        const r = rank.has(to) ? rank.get(to) : 999;
+        el.setAttribute('stroke', active ? '#2a6f97' : r <= i ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.26)');
+        el.setAttribute('marker-end', active || r <= i ? 'url(#agArrowOn)' : 'url(#agArrow)');
+        if (active) { el.setAttribute('stroke-dasharray', '7 7'); el.style.animation = 'agDash .7s linear infinite'; }
+        else { el.style.animation = 'none'; if (dash) el.setAttribute('stroke-dasharray', dash); }
+      });
+      if (meta) meta.innerHTML = 'Pass ' + pad(i + 1) + ' / ' + pad(S.length) + ' &nbsp;&middot;&nbsp; ' + s[2];
+      if (title) title.textContent = s[3];
+      if (body) body.textContent = s[4];
+      ticks.forEach((t, n) => { t.style.background = n === i ? '#2a6f97' : n < i ? 'rgba(42,111,151,0.4)' : 'rgba(30,42,54,0.2)'; });
+      if (scroller && scroller.scrollWidth > scroller.clientWidth) {
+        const el = nodes.get(s[0]);
+        if (el && el.getBBox) {
+          const bb = el.getBBox();
+          const ratio = scroller.scrollWidth / 1080;
+          const target = bb.x * ratio + (bb.width * ratio - scroller.clientWidth) / 2;
+          scroller.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+        }
+      }
+      this._whStep = i;
+    };
+
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._whStep = 0;
+    paint(0);
+    const advance = () => paint((this._whStep + 1) % S.length);
+    const start = () => { if (this._whTimer || reduce) return; this._whTimer = setInterval(advance, 4200); if (playBtn) playBtn.textContent = 'Pause'; };
+    const stop = () => { if (this._whTimer) { clearInterval(this._whTimer); this._whTimer = null; } if (playBtn) playBtn.textContent = 'Play'; };
+    this._whStop = stop;
+    if (playBtn) playBtn.addEventListener('click', () => { this._whUser = true; this._whTimer ? stop() : start(); });
+    ticks.forEach((t, n) => t.addEventListener('click', () => { stop(); this._whUser = true; paint(n); }));
+    stage.addEventListener('click', (e) => {
+      const g = e.target.closest ? e.target.closest('[data-wn]') : null;
+      if (!g) return;
+      const id = g.getAttribute('data-wn');
+      const i = rank.has(id) ? rank.get(id) : -1;
+      if (i > -1) { stop(); this._whUser = true; paint(i); }
+    });
+    if (reduce) { if (playBtn) playBtn.textContent = 'Play'; return; }
+    if ('IntersectionObserver' in window) {
+      this._whIo = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { if (!this._whUser) start(); } else stop(); }); }, { threshold: 0.25 });
+      this._whIo.observe(stage);
+    } else { start(); }
+  }
+  componentWillUnmount() {
+    if (this._agStop) this._agStop();
+    if (this._rvStop) this._rvStop();
+    if (this._skStop) this._skStop();
+    if (this._hbStop) this._hbStop();
+    if (this._plStop) this._plStop();
+    if (this._whStop) this._whStop();
+    if (this._whIo) this._whIo.disconnect();
+    if (this._ctxTimer) clearInterval(this._ctxTimer);
+    if (this._ctxIo) this._ctxIo.disconnect();
+    if (this._plIo) this._plIo.disconnect();
+    if (this._hbIo) this._hbIo.disconnect();
+    if (this._skIo) this._skIo.disconnect();
+    if (this._rvIo) this._rvIo.disconnect();
+    if (this._agIo) this._agIo.disconnect();
+    if (this._io) this._io.disconnect();
+    if (this._sweep) {
+      window.removeEventListener('scroll', this._sweep);
+      window.removeEventListener('hashchange', this._sweep);
+    }
+  }
+  _enter(sec) {
+    const A = window.anime;
+    if (!A || !sec || this._reduce || sec === this._last) return;
+    this._last = sec;
+    const { animate, stagger } = A;
+    (this._splits || []).forEach((sp) => { try { sp.revert(); } catch (e) {} });
+    this._splits = [];
+    (this._running || []).forEach((a) => { try { a.complete(); } catch (e) {} });
+    const run = [];
+    const go = (t, p) => { if (t && (!t.length || t.length > 0)) { const a = animate(t, p); run.push(a); } };
+    const q = (sel) => Array.from(sec.querySelectorAll(sel));
+    go(q('[data-a="eyebrow"]'), { opacity: [0, 1], x: [-28, 0], duration: 800, ease: 'outExpo' });
+    q('h1,h2').forEach((h) => {
+      let words = null;
+      try {
+        if (A.splitText) { const sp = A.splitText(h, { words: { wrap: 'clip' } }); this._splits.push(sp); words = sp.words && sp.words.length ? sp.words : null; }
+      } catch (e) { words = null; }
+      if (words) go(words, { y: ['110%', '0%'], duration: 950, delay: stagger(42, { start: 120 }), ease: 'outExpo' });
+      else go([h], { opacity: [0, 1], y: [30, 0], duration: 900, ease: 'outExpo' });
+    });
+    go(q('[data-a="lede"]'), { opacity: [0, 1], y: [22, 0], duration: 900, delay: stagger(90, { start: 480 }), ease: 'outQuart' });
+    const cards = q('[data-a="card"],[data-a="row"],[data-a="cta"]');
+    go(cards, { opacity: [0, 1], y: [46, 0], duration: 1000, delay: stagger(85, { start: 340 }), ease: 'outBack(1.15)' });
+    go(q('[data-a="photo"]'), { opacity: [0, 1], scale: [1.07, 1], duration: 1500, delay: stagger(160, { start: 150 }), ease: 'outExpo' });
+    q('[data-a="count"]').forEach((el, i) => {
+      const fin = el.dataset.final || (el.dataset.final = el.textContent);
+      const m = fin.match(/[\d.,]+/);
+      if (!m) return;
+      const num = parseFloat(m[0].replace(/,/g, ''));
+      const dec = (m[0].split('.')[1] || '').length;
+      const pre = fin.slice(0, m.index), post = fin.slice(m.index + m[0].length);
+      const o = { v: 0 };
+      el.textContent = pre + (dec ? (0).toFixed(dec) : '0') + post;
+      run.push(animate(o, { v: num, duration: 1700, delay: 420 + i * 130, ease: 'outExpo',
+        onUpdate: () => { el.textContent = pre + (dec ? o.v.toFixed(dec) : Math.round(o.v).toLocaleString('en-US')) + post; },
+        onComplete: () => { el.textContent = fin; } }));
+    });
+    const stage = sec.querySelector('[data-a="stage"]');
+    if (stage) {
+      go([stage], { opacity: [0, 1], y: [26, 0], duration: 800, ease: 'outExpo' });
+      const svg = stage.querySelector('svg');
+      if (svg) {
+        const nodes = Array.from(svg.querySelectorAll('g[data-n],g[data-rn],g[data-sn],g[data-hn],g[data-pn],g[data-wn]'));
+        nodes.forEach((g) => { g.style.transformBox = 'fill-box'; g.style.transformOrigin = 'center'; });
+        go(nodes, { opacity: [0, 1], scale: [0.9, 1], duration: 750, delay: stagger(38, { start: 320 }), ease: 'outBack(1.4)' });
+        go(Array.from(svg.querySelectorAll('path[data-c],path[data-rc],path[data-sc],path[data-hc],path[data-pc],path[data-wc],:scope > text')),
+          { opacity: [0, 1], duration: 700, delay: stagger(14, { start: 560 }), ease: 'outQuad' });
+      }
+    }
+    go(q('[data-a="cap"],[data-a="ctrl"]'), { opacity: [0, 1], y: [22, 0], duration: 850, delay: stagger(110, { start: 620 }), ease: 'outQuart' });
+    this._running = run;
+  }
+  _capWatch() {
+    const sel = ['cap', 'rcap', 'scap', 'hcap', 'pcap', 'wcap'].map((p) => '[data-' + p + '-title],[data-' + p + '-body]').join(',');
+    document.querySelectorAll('[data-a="cap"]').forEach((cap) => {
+      let pending = false;
+      new MutationObserver(() => {
+        if (pending) return;
+        pending = true;
+        requestAnimationFrame(() => {
+          pending = false;
+          const A = window.anime;
+          if (!A || this._reduce) return;
+          A.animate(Array.from(cap.querySelectorAll(sel)), { opacity: [0, 1], y: [14, 0], duration: 600, delay: A.stagger(80), ease: 'outQuart' });
+        });
+      }).observe(cap, { childList: true, subtree: true, characterData: true });
+    });
+  }
+  _pulse() {
+    const A = window.anime;
+    const dot = document.querySelector('[data-a="pulse"]');
+    if (!A || !dot || this._reduce) return;
+    A.animate(dot, { scale: [1, 1.7, 1], opacity: [1, 0.55, 1], duration: 2400, loop: true, ease: 'inOutSine' });
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
