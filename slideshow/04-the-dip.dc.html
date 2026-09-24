@@ -33,6 +33,7 @@
               <stop offset="0%" stop-color="#2a6f97" stop-opacity="0.32"></stop>
               <stop offset="100%" stop-color="#2a6f97" stop-opacity="0"></stop>
             </linearGradient>
+            <clipPath id="phaseClip"><rect data-phase-clip x="0" y="0" width="1000" height="420"></rect></clipPath>
           </defs>
 
           <g stroke="rgba(30,42,54,0.09)" stroke-width="1">
@@ -50,40 +51,42 @@
           <text x="52" y="46" fill="#6a7883" font-size="11" text-anchor="end" letter-spacing="1.4">HIGH</text>
           <text x="52" y="364" fill="#6a7883" font-size="11" text-anchor="end" letter-spacing="1.4">LOW</text>
 
-          <path data-fade-in d="M70,268 C150,276 210,322 300,324 C400,326 480,286 560,240 L560,360 L70,360 Z" fill="url(#roiFill)" opacity="0"></path>
-          <path data-fade-in d="M560,240 C660,196 740,168 820,128 C900,88 946,58 968,42 L968,360 L560,360 Z" fill="url(#roiFill)" opacity="0"></path>
+          <g clip-path="url(#phaseClip)">
+          <path d="M70,268 C150,276 210,322 300,324 C400,326 480,286 560,240 L560,360 L70,360 Z" fill="url(#roiFill)"></path>
+          <path d="M560,240 C660,196 740,168 820,128 C900,88 946,58 968,42 L968,360 L560,360 Z" fill="url(#roiFill)"></path>
 
-          <path data-draw d="M70,268 C150,276 210,322 300,324 C400,326 480,286 560,240 C660,196 740,168 800,136" fill="none" stroke="#2a6f97" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="1200" stroke-dashoffset="1200"></path>
-          <path data-fade-in="0.62" d="M800,136 C868,100 936,60 968,42" fill="none" stroke="#2a6f97" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="10 9" opacity="0" style="transition-delay:1.9s"></path>
+          <path d="M70,268 C150,276 210,322 300,324 C400,326 480,286 560,240 C660,196 740,168 800,136" fill="none" stroke="#2a6f97" stroke-width="3.5" stroke-linecap="round"></path>
+          <path data-phase="5" data-phase-op="0.62" d="M800,136 C868,100 936,60 968,42" fill="none" stroke="#2a6f97" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="10 9" opacity="0"></path>
+          </g>
 
-          <g data-fade-in opacity="0" style="transition-delay:1.1s">
+          <g data-phase="1" opacity="0">
             <circle cx="70" cy="268" r="6" fill="#f4f1ea" stroke="#2a6f97" stroke-width="2.5"></circle>
-            <text x="70" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">2023</text>
+            <text x="70" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">PHASE 01</text>
             <text x="70" y="248" fill="#66747f" font-size="11" text-anchor="middle" letter-spacing="1.2">01</text>
-          </g>
-          <g data-fade-in opacity="0" style="transition-delay:1.35s">
+                      </g>
+          <g data-phase="2" opacity="0">
             <circle cx="310" cy="324" r="6" fill="#f4f1ea" stroke="#2a6f97" stroke-width="2.5"></circle>
-            <text x="310" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">2024</text>
+            <text x="310" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">PHASE 02</text>
             <text x="310" y="352" fill="#66747f" font-size="11" text-anchor="middle" letter-spacing="1.2">02</text>
-          </g>
-          <g data-fade-in opacity="0" style="transition-delay:1.6s">
+                      </g>
+          <g data-phase="3" opacity="0">
             <circle cx="560" cy="240" r="6" fill="#f4f1ea" stroke="#2a6f97" stroke-width="2.5"></circle>
-            <text x="560" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">2025</text>
+            <text x="560" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">PHASE 03</text>
             <text x="560" y="220" fill="#66747f" font-size="11" text-anchor="middle" letter-spacing="1.2">03</text>
-          </g>
-          <g data-fade-in opacity="0" style="transition-delay:1.85s">
+                      </g>
+          <g data-phase="4" opacity="0">
             <circle cx="800" cy="136" r="7" fill="#2a6f97"></circle>
             <line x1="800" y1="150" x2="800" y2="360" stroke="rgba(42,111,151,0.4)" stroke-width="1" stroke-dasharray="3 5"></line>
-            <text x="800" y="392" fill="#16212c" font-size="13" text-anchor="middle" letter-spacing="1.2">2026</text>
+            <text x="800" y="392" fill="#16212c" font-size="13" text-anchor="middle" letter-spacing="1.2">PHASE 04</text>
             <text x="800" y="88" fill="#2a6f97" font-size="11" text-anchor="middle" letter-spacing="1.2">04 &middot; TODAY</text>
           </g>
 
-          <g data-fade-in opacity="0" style="transition-delay:2.1s">
+          <g data-phase="2" opacity="0">
             <text x="95" y="172" fill="#66747f" font-size="12.5" letter-spacing="0.6">Process strain: hand-offs, review load,</text>
             <text x="95" y="190" fill="#66747f" font-size="12.5" letter-spacing="0.6">broken estimates, drifting ownership</text>
             <line x1="200" y1="202" x2="296" y2="306" stroke="rgba(30,42,54,0.28)" stroke-width="1" stroke-dasharray="3 5"></line>
           </g>
-          <g data-fade-in opacity="0" style="transition-delay:2.3s">
+          <g data-phase="5" opacity="0">
             <text x="880" y="176" fill="#2a6f97" font-size="12.5" text-anchor="middle" letter-spacing="0.6">Compounding</text>
             <text x="880" y="194" fill="#2a6f97" font-size="12.5" text-anchor="middle" letter-spacing="0.6">value</text>
           </g>
@@ -137,6 +140,32 @@ class Component extends DCLogic {
         p.style.transition = 'stroke-dashoffset 2.2s cubic-bezier(.35,.9,.25,1)'; p.style.strokeDashoffset = '0';
       });
       sec.querySelectorAll('[data-fade-in]').forEach((p) => { p.style.transition = 'opacity 1s ease-out'; p.style.opacity = p.getAttribute('data-fade-in') || '1'; });
+      (() => {
+        const clip = sec.querySelector('[data-phase-clip]'); if (!clip) return;
+        const els = [...sec.querySelectorAll('[data-phase]')];
+        const show = (n) => els.filter((e) => e.getAttribute('data-phase') === String(n)).forEach((e) => { e.style.transition = 'opacity .7s ease-out'; e.style.opacity = e.getAttribute('data-phase-op') || '1'; });
+        if (this._phaseRaf) cancelAnimationFrame(this._phaseRaf);
+        (this._phaseTimers || []).forEach(clearTimeout); this._phaseTimers = [];
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) { clip.setAttribute('width', 1000); [1,2,3,4,5].forEach(show); return; }
+        els.forEach((e) => { e.style.transition = 'none'; e.style.opacity = 0; });
+        clip.setAttribute('width', 74);
+        const stops = [74, 314, 564, 806, 1000], seg = 1000, pause = 450;
+        const ease = (t) => 1 - Math.pow(1 - t, 3);
+        const run = (i) => {
+          show(i + 1);
+          if (i >= stops.length - 1) return;
+          this._phaseTimers.push(setTimeout(() => {
+            const a = stops[i], b = stops[i + 1], t0 = performance.now();
+            const tick = (now) => {
+              const t = Math.min(1, (now - t0) / seg);
+              clip.setAttribute('width', a + (b - a) * ease(t));
+              if (t < 1) this._phaseRaf = requestAnimationFrame(tick); else run(i + 1);
+            };
+            this._phaseRaf = requestAnimationFrame(tick);
+          }, pause));
+        };
+        this._phaseTimers.push(setTimeout(() => run(0), 700));
+      })();
       try { this._capWatch(); this._pulse(); this._enter(sec); } catch (e) {}
     };
     boot(0);

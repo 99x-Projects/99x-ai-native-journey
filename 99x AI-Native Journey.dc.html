@@ -93,7 +93,7 @@
     <div style="max-width:1200px;margin:0 auto">
       <div data-reveal style="max-width:62ch">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:#2a6f97;margin-bottom:18px">02 / How it unfolded</div>
-        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#16212c;text-wrap:balance">Four phases, each one a correction of the last.</h2>
+        <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4.4vw,56px);line-height:1.04;letter-spacing:-0.03em;color:#16212c;text-wrap:balance">Five phases, each one a correction of the last.</h2>
         <p style="margin:20px 0 0;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#54636f;text-wrap:pretty">Read these in order: each phase solved the problem the previous one created. Nothing here was adopted because it was new &mdash; it had to hold up on a live client engagement first. The &ldquo;what shipped&rdquo; column is what changed in practice, including the side effects we did not anticipate.</p>
       </div>
 
@@ -101,8 +101,8 @@
         <sc-for list="{{ phases }}" as="ph" hint-placeholder-count="5">
           <div data-reveal style="display:grid;grid-template-columns:minmax(0,148px) minmax(0,1fr);gap:clamp(18px,4vw,56px);padding:clamp(26px,3.4vw,40px) 0;border-top:1px solid rgba(30,42,54,0.12)">
             <div>
-              <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#2a6f97">{{ ph.when }}</div>
-              <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6a7883">Phase {{ ph.no }}</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#2a6f97">Phase {{ ph.no }}</div>
+              <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6a7883">{{ ph.when }}</div>
               <div style="margin-top:16px;height:3px;background:rgba(30,42,54,0.12)">
                 <div style="height:3px;background:#2a6f97;width:{{ ph.progress }};box-shadow:0 0 10px rgba(42,111,151,0.6)"></div>
               </div>
@@ -201,23 +201,23 @@
 
           <g data-fade-in opacity="0" style="transition-delay:1.1s">
             <circle cx="70" cy="268" r="6" fill="#f4f1ea" stroke="#2a6f97" stroke-width="2.5"></circle>
-            <text x="70" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">2023</text>
+            <text x="70" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">PHASE 01</text>
             <text x="70" y="248" fill="#66747f" font-size="11" text-anchor="middle" letter-spacing="1.2">01</text>
           </g>
           <g data-fade-in opacity="0" style="transition-delay:1.35s">
             <circle cx="310" cy="324" r="6" fill="#f4f1ea" stroke="#2a6f97" stroke-width="2.5"></circle>
-            <text x="310" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">2024</text>
+            <text x="310" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">PHASE 02</text>
             <text x="310" y="352" fill="#66747f" font-size="11" text-anchor="middle" letter-spacing="1.2">02</text>
           </g>
           <g data-fade-in opacity="0" style="transition-delay:1.6s">
             <circle cx="560" cy="240" r="6" fill="#f4f1ea" stroke="#2a6f97" stroke-width="2.5"></circle>
-            <text x="560" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">2025</text>
+            <text x="560" y="392" fill="#54636f" font-size="13" text-anchor="middle" letter-spacing="1.2">PHASE 03</text>
             <text x="560" y="220" fill="#66747f" font-size="11" text-anchor="middle" letter-spacing="1.2">03</text>
           </g>
           <g data-fade-in opacity="0" style="transition-delay:1.85s">
             <circle cx="800" cy="136" r="7" fill="#2a6f97"></circle>
             <line x1="800" y1="150" x2="800" y2="360" stroke="rgba(42,111,151,0.4)" stroke-width="1" stroke-dasharray="3 5"></line>
-            <text x="800" y="392" fill="#16212c" font-size="13" text-anchor="middle" letter-spacing="1.2">2026</text>
+            <text x="800" y="392" fill="#16212c" font-size="13" text-anchor="middle" letter-spacing="1.2">PHASE 04</text>
             <text x="800" y="88" fill="#2a6f97" font-size="11" text-anchor="middle" letter-spacing="1.2">04 &middot; TODAY</text>
           </g>
 
@@ -1472,10 +1472,11 @@ class Component extends DCLogic {
         { tag: '[c]', title: 'Clients asked how, not whether', body: 'Procurement and security wanted AI usage documented before signing a statement of work. Auditability is a delivery requirement, not a compliance afterthought.' }
       ],
       phases: [
-        { no: '01', when: '2023', progress: '100%', title: 'AI as a productivity tool', body: 'The journey started the moment our teams got access to AI tools. No grand strategy — engineers and designers used them for assistance on the work already in front of them, and we watched closely what actually helped.', items: ['Wireframes drafted in minutes, not sessions', 'Code and unit tests generated alongside the engineer', 'Emails, summaries and documentation drafted faster', 'Close observation of where the help was real'] },
-        { no: '02', when: '2024', progress: '100%', title: 'Velocity outgrew the process', body: 'The better our people got at using AI, the more the ceiling moved. Work that took hours or days came back in minutes, and complicated problems started clearing at a pace our delivery process had never been designed for. It was built around human-centric workflow, and it began to buckle.', items: ['Hand-offs became the slowest part of the chain', 'Review workload for humans grew faster than the team', 'Estimates broke — and with them release plans, costing and budgets', 'Ownership drifted: overwhelmed by the volume of output, people over-trusted it'] },
-        { no: '03', when: '2025', progress: '100%', title: 'Rebuilding the process around the pace', body: 'Improvement has to come through people, processes and tools — so this was where we turned to process. We studied spec-driven development, BMAD and other emerging frameworks, then wrote our own context down: domain knowledge, architecture constraints, design decisions, coding guidelines and feature documentation as markdown the AI could plan and implement against. It worked, until it did not.', items: ['Spec-driven development and BMAD evaluated in real engagements', 'Domain, architecture and design decisions captured as markdown context', 'AI generating tasks, plans and implementations from those specs', 'The catch: documentation sprawl, AI debt and stale artefacts in the repo', 'The deeper catch: teams began losing knowledge they used to own'] },
-        { no: '04', when: '2026 — today', progress: '100%', title: 'Our own control plane and framework', body: 'Rather than keep bending someone else\u2019s process, we built ours. Xianix.ai is our agent control plane; the Intent Delivery Framework is the process that runs on it \u2014 intent-first, gated, auditable. Alongside them, a centrally managed skill library lets any engineer start upskilling on day one.', items: ['Xianix.ai \u2014 agent control plane, pods of agents plus accountable engineers', 'Intent Delivery Framework \u2014 every feature starts as a written intent', 'Quality gates and audit logs on every AI interaction', 'Centrally managed skill library, adopted engineer by engineer'] }
+        { no: '01', when: '', progress: '100%', title: 'AI as a productivity tool', body: 'The journey started the moment our teams got access to AI tools. No grand strategy — engineers and designers used them for assistance on the work already in front of them, and we watched closely what actually helped.', items: ['Wireframes drafted in minutes, not sessions', 'Code and unit tests generated alongside the engineer', 'Emails, summaries and documentation drafted faster', 'Close observation of where the help was real'] },
+        { no: '02', when: '', progress: '100%', title: 'Velocity outgrew the process', body: 'The better our people got at using AI, the more the ceiling moved. Work that took hours or days came back in minutes, and complicated problems started clearing at a pace our delivery process had never been designed for. It was built around human-centric workflow, and it began to buckle.', items: ['Hand-offs became the slowest part of the chain', 'Review workload for humans grew faster than the team', 'Estimates broke — and with them release plans, costing and budgets', 'Ownership drifted: overwhelmed by the volume of output, people over-trusted it'] },
+        { no: '03', when: '', progress: '100%', title: 'Rebuilding the process around the pace', body: 'Improvement has to come through people, processes and tools — so this was where we turned to process. We studied spec-driven development, BMAD and other emerging frameworks, then wrote our own context down: domain knowledge, architecture constraints, design decisions, coding guidelines and feature documentation as markdown the AI could plan and implement against. It worked, until it did not.', items: ['Spec-driven development and BMAD evaluated in real engagements', 'Domain, architecture and design decisions captured as markdown context', 'AI generating tasks, plans and implementations from those specs', 'The catch: documentation sprawl, AI debt and stale artefacts in the repo', 'The deeper catch: teams began losing knowledge they used to own'] },
+        { no: '04', when: '', progress: '100%', title: 'Our own control plane and framework', body: 'Rather than keep bending someone else\u2019s process, we built ours. Xianix.ai is our agent control plane; the Intent Delivery Framework is the process that runs on it \u2014 intent-first, gated, auditable. Alongside them, a centrally managed skill library lets any engineer start upskilling on day one.', items: ['Xianix.ai \u2014 agent control plane, pods of agents plus accountable engineers', 'Intent Delivery Framework \u2014 every feature starts as a written intent', 'Quality gates and audit logs on every AI interaction', 'Centrally managed skill library, adopted engineer by engineer'] },
+        { no: '05', when: 'Today', progress: '100%', title: 'AI Hub: measuring what agents do', body: 'Once agents performed part of the work, story points and commit counts stopped describing reality. AI Hub closes that gap: every step of a delivery workflow reports who took part \u2014 human, agent or both \u2014 with tokens, cost and model attached.', items: ['Workflows and node activities modelled before they are measured', 'Every event records its actors: human, agent, or both', 'Tokens, cost and model attached to each step', 'Usage rolls up by stage, by member and by agent'] }
       ],
       stages: [
         { no: '01', owner: 'Human-led', title: 'Inception', body: 'An intent is written down with testable acceptance criteria, then elaborated with the team and the AI in a mob session and broken into units.' },

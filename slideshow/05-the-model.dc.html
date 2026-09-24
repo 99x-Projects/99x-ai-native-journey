@@ -30,20 +30,34 @@
     <h2 style="margin:0;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:72px;line-height:1.02;letter-spacing:-0.035em;color:#16212c;max-width:24ch;text-wrap:balance">Copilots, autopilots, and the process that governs both.</h2>
   </div>
   <div style="flex:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
-    <div data-a="card" style="background:#ffffff;border:1px solid rgba(30,42,54,0.14);padding:44px 40px;display:flex;flex-direction:column;gap:20px">
+    <div data-a="phase" style="background:#ffffff;border:1px solid rgba(30,42,54,0.14);padding:44px 40px;display:flex;flex-direction:column;gap:20px">
       <span style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:17px;letter-spacing:0.14em;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(30,42,54,0.3);color:#54636f">Bottom-up</span>
       <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:48px;letter-spacing:-0.025em;color:#16212c">Copilots</div>
-      <div style="font-size:26px;line-height:1.45;color:#54636f">Pulled by an engineer, in the IDE, when the work calls for it.</div>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0"><pre data-a="ascii" aria-label="ASCII art of a computer mouse" style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:26px;line-height:1.2;color:#2a6f97;white-space:pre">    ,.
+ __.'_
+|__|__|
+|     |
+|-___-|
+'.___.'mrf</pre></div><div style="font-size:26px;line-height:1.45;color:#54636f">Pulled by an engineer, in the IDE, when the work calls for it.</div>
     </div>
-    <div data-a="card" style="background:#ffffff;border:1px solid rgba(42,111,151,0.4);padding:44px 40px;display:flex;flex-direction:column;gap:20px">
+    <div data-a="phase" style="background:#ffffff;border:1px solid rgba(42,111,151,0.4);padding:44px 40px;display:flex;flex-direction:column;gap:20px">
       <span style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:17px;letter-spacing:0.14em;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(42,111,151,0.5);color:#2a6f97">Top-down</span>
       <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:48px;letter-spacing:-0.025em;color:#16212c">Autopilots</div>
-      <div style="font-size:26px;line-height:1.45;color:#54636f">Fired by delivery events. Each stops at a human who signs.</div>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0"><pre data-a="ascii" aria-label="ASCII art of a robot" style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:26px;line-height:1.2;color:#2a6f97;white-space:pre">  o       o
+   \_____/
+   /=O=O=\
+  /   ^   \
+  \ \___/ /
+   \__V__/</pre></div><div style="font-size:26px;line-height:1.45;color:#54636f">Fired by delivery events. Each stops at a human who signs.</div>
     </div>
-    <div data-a="card" style="background:#e4edf3;border:1px solid #2a6f97;padding:44px 40px;display:flex;flex-direction:column;gap:20px">
+    <div data-a="phase" style="background:#e4edf3;border:1px solid #2a6f97;padding:44px 40px;display:flex;flex-direction:column;gap:20px">
       <span style="align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:17px;letter-spacing:0.14em;text-transform:uppercase;padding:6px 14px;border:1px solid #2a6f97;color:#2a6f97">Governs both</span>
       <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:48px;letter-spacing:-0.025em;color:#16212c">Process</div>
-      <div style="font-size:26px;line-height:1.45;color:#54636f">Intent Delivery Framework: Inception &rarr; Construction &rarr; Operate &rarr; Improve.</div>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0"><pre data-a="ascii" aria-label="ASCII art of interlocking cubes" style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:26px;line-height:1.2;color:#2a6f97;white-space:pre">   __
+  /_/\
+ _\_\/_
+/_/\/_/\
+\_\/\_\/</pre></div><div style="font-size:26px;line-height:1.45;color:#54636f">Intent Delivery Framework: Inception &rarr; Construction &rarr; Operate &rarr; Improve.</div>
     </div>
   </div>
   <div data-a="lede" style="display:flex;align-items:baseline;gap:24px;font-size:26px;color:#54636f"><span style="font-family:'IBM Plex Mono',monospace;font-size:18px;letter-spacing:0.18em;text-transform:uppercase;color:#6a7883">+ People</span>Every change traces to a written intent, and a named engineer signs it.</div>
@@ -770,6 +784,12 @@ class Component extends DCLogic {
       else go([h], { opacity: [0, 1], y: [30, 0], duration: 900, ease: 'outExpo' });
     });
     go(q('[data-a="lede"]'), { opacity: [0, 1], y: [22, 0], duration: 900, delay: stagger(90, { start: 480 }), ease: 'outQuart' });
+    q('[data-a="phase"]').forEach((c, i) => {
+      const d = 700 + i * 520;
+      go([c], { opacity: [0, 1], x: [140, 0], duration: 1000, delay: d, ease: 'outExpo' });
+      const art = c.querySelector('[data-a="ascii"]');
+      if (art) go([art], { opacity: [0, 1], scale: [0.85, 1], duration: 900, delay: d + 320, ease: 'outBack(1.6)' });
+    });
     const cards = q('[data-a="card"],[data-a="row"],[data-a="cta"]');
     go(cards, { opacity: [0, 1], y: [46, 0], duration: 1000, delay: stagger(85, { start: 340 }), ease: 'outBack(1.15)' });
     go(q('[data-a="photo"]'), { opacity: [0, 1], scale: [1.07, 1], duration: 1500, delay: stagger(160, { start: 150 }), ease: 'outExpo' });
